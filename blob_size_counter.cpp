@@ -14,7 +14,6 @@
 // X is the position of our car.
 // Write an algorithm that prints the size of each object it encounters.
 
-
 struct coord{
   std::vector <int> x;
   std::vector <int> y;
@@ -74,7 +73,6 @@ int find_blob_size(int x, int y, std::vector<std::vector<int>> &Grid)
 
 int main ()
 {
-
 
   std::vector <std::vector <int>> A = {{0, 1, 0, 0, 1, 1, 0},
                                        {1, 1, 0, 0, 1, 1, 0},
