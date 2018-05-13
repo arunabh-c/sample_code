@@ -60,12 +60,8 @@ class bellman_ford {
     }
     
     return ans;
-
-  };
-    
+  }; 
 };
-
-
 
 int main() {
 	
