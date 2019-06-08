@@ -1,79 +1,57 @@
 #include <iostream>
-#include<vector>
-#include<bits/stdc++.h> //INT_MAX
+#include <vector>
 
-vector<int> graph_shortest_distance_list(int arr[V][V], int x, int y)
+ std::vector<std::vector<int>> graph = {{0, 4, 0, 0, 0, 0, 0, 8, 0}, 
+                                        {4, 0, 8, 0, 0, 0, 0, 11, 0}, 
+                                        {0, 8, 0, 7, 0, 4, 0, 0, 2}, 
+                                        {0, 0, 7, 0, 9, 14, 0, 0, 0}, 
+                                        {0, 0, 0, 9, 0, 10, 0, 0, 0}, 
+                                        {0, 0, 4, 14, 10, 0, 2, 0, 0}, 
+                                        {0, 0, 0, 0, 0, 2, 0, 1, 6}, 
+                                        {8, 11, 0, 0, 0, 0, 1, 0, 7}, 
+                                        {0, 0, 2, 0, 0, 0, 6, 7, 0}};
+
+struct node_pair_set {
+    std::vector<int> path = {};
+    int dist = 9999;
+} init_node_pair_set;
+
+void find_shortest_routes(int start_node, int dist, std::vector<node_pair_set> &X, std::vector<int> &last_path)
 {
-    int temp_node_seq[V] = {0};
-    int completed[V] = {0};
-    
-    int min_sum = 0;
-    
-    int i = 0;
-    bool change_flag = true;
-    
-    while (i < V || change_flag == true)
+    for (int i =0;i<graph.size();i++)
     {
-        //cout<<i<<'\n';
-        if (arr[x][i] != 0 && completed[i] == 0)
+        int temp_dist = 0;
+        std::vector<int> temp_path = last_path;
+        if (graph[start_node][i] != 0)
         {
-            completed[i] = 1;
-            int path_length = arr[x][i];
-            for (int j =0;j<=V;j++)
+            temp_dist = dist + graph[start_node][i];
+            if (temp_dist < X[i].dist)
             {
-                if (arr[i][j] != 0 && j!=x)
-                {
-                    if (arr[x][j] == 0)
-                    {
-                        arr[x][j] = path_length + arr[i][j];
-                        temp_node_seq[j] = i;
-                    }
-                    else if (arr[x][j] > (path_length + arr[i][j]))
-                    {
-                        arr[x][j] = path_length + arr[i][j];
-                        temp_node_seq[j] = i;
-                        change_flag = true;
-                        completed[j] = 0;
-                    }
-                }
+                //std::cout<<"test"<<std::endl;
+                X[i].dist = temp_dist;
+                temp_path.push_back(start_node);
+                X[i].path = temp_path;
+                find_shortest_routes(i, temp_dist, X, temp_path);
             }
         }
-        ++i;
-        if (i == V && change_flag == true)
-        {
-            i = 0;
-            change_flag = false;
-        }
-
     }
-
-    int ctr = V-1;
-    vector<int> final_seq;
-    int prev_item = y;
-    while (prev_item !=0)
-    {
-        //cout<<prev_item<<'\n';
-        final_seq.insert(final_seq.begin(),prev_item);
-        prev_item = temp_node_seq[prev_item];
-        --ctr;
-    }
-    
-    //pointer = final_seq;
-    return final_seq;//pointer;//arr[0];
+    return;
 }
-int main(){
-        
-    vector<int> ans;
-    ans = graph_shortest_distance_list(graph,start,stop);
+
+int main() {
+                                           
+    std::vector<node_pair_set> node_routes(graph.size(),init_node_pair_set);
     
-    cout<<"ans"<<'\n';
-    for (int i = 0;i<ans.size();i++)
+    int start_node = 1;
+    int stop_node = 4;
+    std::vector<int> path = {};
+    find_shortest_routes(start_node, 0, node_routes, path);
+    
+    std::cout<<"Distance: "<<node_routes[stop_node].dist<<std::endl;;
+    std::cout<<std::endl<<"Path: ";
+    for (int i =0;i<node_routes[stop_node].path.size();i++)
     {
-        if (ans[i] !=0)        
-        {
-            cout<<ans[i]<<'\n';
-        }
+        std::cout<<node_routes[stop_node].path[i]<<",";
     }
-    
     return 0;
-    }
+}
