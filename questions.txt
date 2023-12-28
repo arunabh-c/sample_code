@@ -3,3 +3,19 @@ Difference between lambda vs std::function
 What is meant by RAII
 How to avoid memory leak with Shared_ptr?
 Difference between push_back vs emplace_back
+
+Here is an example where we have a vector of strings and we pass it a sting literal (const char*)
+
+vector<string> words; 
+words.push_back("push_back") 
+Since push_back requires a object of type string the string literal “push_back” gets passed to the string class constructor first so the code is really
+
+vector<string> words; 
+words.push_back(string("push_back")); 
+which in this case it has to make a temporary object which is then passed in to push_back.
+
+Where as with emplate_back there is no need for a temporary object
+
+vector<string> words; 
+words.emplace_back("emplace_back"); 
+the string literal is just passed in so in this case it is a bit more efficient .
