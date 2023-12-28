@@ -1,0 +1,5 @@
+Advantage Disadvantages of Inheritance
+Difference between lambda vs std::function
+What is meant by RAII
+How to avoid memory leak with Shared_ptr?
+Difference between push_back vs emplace_back
