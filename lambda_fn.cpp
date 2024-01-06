@@ -122,3 +122,12 @@ int main2()
     cout << "The number of elements greater than or equal to 5 is : "
          << count_N << endl;
 }
+/*C++11 introduces lambdas allow you to write an inline, anonymous functor to replace the struct f. For small simple examples this can be cleaner to read (it keeps everything in one place) and potentially simpler to maintain, for example in the simplest form:
+
+void func3(std::vector<int>& v) {
+  std::for_each(v.begin(), v.end(), [](int) { /* do something here*/ });
+}
+Lambda functions are just syntactic sugar for anonymous functors.*/
+//References
+//https://www.geeksforgeeks.org/lambda-expression-in-c/
+//https://stackoverflow.com/questions/7627098/what-is-a-lambda-expression-and-when-should-i-use-one
