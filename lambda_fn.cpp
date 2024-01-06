@@ -125,9 +125,37 @@ int main2()
 /*C++11 introduces lambdas allow you to write an inline, anonymous functor to replace the struct f. For small simple examples this can be cleaner to read (it keeps everything in one place) and potentially simpler to maintain, for example in the simplest form:
 
 void func3(std::vector<int>& v) {
-  std::for_each(v.begin(), v.end(), [](int) { /* do something here*/ });
+  std::for_each(v.begin(), v.end(), [](int) { /* do something here* });
 }
-Lambda functions are just syntactic sugar for anonymous functors.*/
+Lambda functions are just syntactic sugar for anonymous functors.
+
+WHY USE LAMBDA AND NOT JUST FUNCTORS?! WITHOUT LAMBDA HERE IS HOW ONE WOULD USE A FUNCTOR::
+
+namespace {
+  struct f {
+    void operator()(int) {
+      // do something
+    }
+  };
+}
+
+void func(std::vector<int>& v) {
+  f f;
+  std::for_each(v.begin(), v.end(), f);
+}
+If you only use f once and in that specific place it seems overkill to be writing a whole class just to do something trivial and one off.
+
+In C++03 you might be tempted to write something like the following, to keep the functor local:
+
+void func2(std::vector<int>& v) {
+  struct {
+    void operator()(int) {
+       // do something
+    }
+  } f;
+  std::for_each(v.begin(), v.end(), f);
+}
+however this is not allowed, f cannot be passed to a template function in C++03.*/
 //References
 //https://www.geeksforgeeks.org/lambda-expression-in-c/
 //https://stackoverflow.com/questions/7627098/what-is-a-lambda-expression-and-when-should-i-use-one
