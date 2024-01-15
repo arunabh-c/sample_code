@@ -1,1 +1,3 @@
 https://github.com/zouxiaobo/interview_back_end/blob/master/01-C-C%2B%2B%E8%AF%AD%E6%B3%95%E5%9F%BA%E7%A1%80.md
+
+https://github.com/niravigad/C-interview-Questions
