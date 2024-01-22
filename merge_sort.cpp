@@ -10,37 +10,38 @@ void merge_sort(vector<int> &ip)
     {
         size_t half = max(size_t(0),ip.size()/2);
         vector<int> half1(ip.begin(),ip.begin()+half);
-        merge_sort(half1);
+        merge_sort(half1);//recursively call on smaller halves; half1 is sorted here
 
         vector<int> half2(ip.begin()+half,ip.end());
-        merge_sort(half2);
+        merge_sort(half2);//half2 is sorted here
 
-        ip.clear();
+        ip.clear();//ip vector cleared here
         int i1 = 0, i2 = 0;
         
         while (i1 < half1.size() || i2 < half2.size())
         {
-            if (i1 >= half1.size())
+            if (i1 >= half1.size())//half1 complete keep pushing rest of half2
             {
-                ip.push_back(half2[i2]);
+                ip.emplace_back(half2[i2]);
                 ++i2;
             }
-            else if (i2 >= half2.size())
+            else if (i2 >= half2.size())//half2 complete keep pushing rest of half1
             {
-                ip.push_back(half1[i1]);
+                ip.emplace_back(half1[i1]);
                 ++i1;
             }
-            else
+            else//default case
             {
+                //increment i1 and i2 to keep pushing elements from half1 & half2 into ip
                 if (half1[i1] < half2[i2])
                 {
-                  ip.push_back(half1[i1]);
+                  ip.emplace_back(half1[i1]);
                   ++i1;
                 }
                 else
                 {
-                  ip.push_back(half2[i2]);
-                  ++i2;
+                  ip.emplace_back(half2[i2]);
+
                 }
             }
         }
