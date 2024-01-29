@@ -84,6 +84,32 @@ In a 32 bit operating system, integers are stored as 4 bytes.
 
 Since a is negative, it will be stored in 2’s complement. When an integer is negative and we want to right shift by “n” bits, we need to prepend ones (not zeros!) to the left hand side. The answer would therefore be 0xFFFF (%x prints out value in hex).*/
 
+/*#define DEBUG 1 // turn on debugging
+int main(void)
+{
+#ifdef DEBUG
+printf("debugging is on, DEBUG is %d\n", DEBUG);
+#else
+printf("debugging is off, DEBUG is not defined\n");
+#endif
+return 0;
+}
+Answer
+debugging is on, DEBUG is 1*/
+
+/*#define DEBUG 0 // turn on debugging
+int main(void)
+{
+#ifdef DEBUG
+printf("debugging is on, DEBUG is %d\n", DEBUG);
+#else
+printf("debugging is off, DEBUG is not defined\n");
+#endif
+return 0;
+}
+Answer
+debugging is on, DEBUG is 0*/
+
 /*https://github.com/zouxiaobo/interview_back_end/blob/master/01-C-C%2B%2B%E8%AF%AD%E6%B3%95%E5%9F%BA%E7%A1%80.md
 
 https://github.com/niravigad/C-interview-Questions*/
