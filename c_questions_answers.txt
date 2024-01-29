@@ -32,7 +32,27 @@ The function gets() reads characters from the stdin and stores them at the provi
 
 One way to work around this issue is to use fgets(). It allows you to put a limit on the maximum number of characters to read:
 
-fgets(b, 124, stdin);8/
+fgets(b, 124, stdin);*/
+
+/*What is the difference between structs and unions?
+
+A struct is a complex data type that allows multiple variables to be stored in a group at a named block of memory. Each member variable of a struct can store different data, and they all can be used at once.
+
+struct a {
+    int x;
+    char y;
+} a;
+For example, you may store an integer in x, and and a character in y above, independent of each other.
+
+A union, on the other hand, stores the contents of any member variable at the exact same memory location. This allows the storage of different types of data at the same memory location. The result is that assigning a value to one member will change the value of all the other members. Unlike struct, only one member of the union type is likely to be useful at any given time.
+
+union b {
+    int x;
+    char y;
+} b;
+For example, storing a character in y may automatically change the integer you read from x to something meaningless or unpredictable.*/
+
+
 
 /*https://github.com/zouxiaobo/interview_back_end/blob/master/01-C-C%2B%2B%E8%AF%AD%E6%B3%95%E5%9F%BA%E7%A1%80.md
 
