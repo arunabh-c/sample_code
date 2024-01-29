@@ -1,3 +1,7 @@
-https://github.com/zouxiaobo/interview_back_end/blob/master/01-C-C%2B%2B%E8%AF%AD%E6%B3%95%E5%9F%BA%E7%A1%80.md
+/*What is the difference between #include "..." and #include <...>?
 
-https://github.com/niravigad/C-interview-Questions
+For "...", the preprocessor limits its search for the file to the same directory where the current source file resides, and then to the standard directories pre-designated by the compiler. For <...>, the preprocessor searches for the file in directories pre-designated by the compiler - usually directories where standard library header files reside.*/
+
+/*https://github.com/zouxiaobo/interview_back_end/blob/master/01-C-C%2B%2B%E8%AF%AD%E6%B3%95%E5%9F%BA%E7%A1%80.md
+
+https://github.com/niravigad/C-interview-Questions*/
