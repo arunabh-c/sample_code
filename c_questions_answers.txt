@@ -1,6 +1,38 @@
+int *a = malloc(sizeof(int));
+a = 0;
+free(a);
+// a is now a dangling pointer
+
+char (*x) (char*);
+//declares x as a pointer to a function that takes a single character-pointer argument, and //returns a character
+
+#include <stdio.h>
+#define SQUARE(a) (a)*(a)
+
+int main() {
+    printf("%d\n", SQUARE(4));
+    int x = 3;
+    printf("%d\n", SQUARE(++x));
+}
+
+/*The answer is infact undefined, and depends on the compiler being used. Some compilers will result in 16 and 20, while others will produce 16 and 25.
+
+One might expect the second use of the SQUARE macro to yield 16, just like the first use of the SQUARE macro. However, macros are processed by the preprocessor, a step that takes place before actual compilation begins. Expanding the second macro will show what actually gets compiled:
+
+(++x)*(++x)
+The evaluation of the pre-increment operation ++x is where the undefined behavior in C comes in. With some compilers, the macro will reduce to (4)*(5), while in other cases, it will be evaluated as (5)*(5).*/
+
 /*What is the difference between #include "..." and #include <...>?
 
 For "...", the preprocessor limits its search for the file to the same directory where the current source file resides, and then to the standard directories pre-designated by the compiler. For <...>, the preprocessor searches for the file in directories pre-designated by the compiler - usually directories where standard library header files reside.*/
+
+/*Why is it usually a bad idea to use gets()? Suggest a workaround.
+
+The function gets() reads characters from the stdin and stores them at the provided input buffer. However, gets() will keep reading until it encounters a newline character. Unless the buffer is large enough, or the length of the line being read is known ahead of time, gets() can potentially overflow the input buffer and start overwriting memory it is not supposed to, wreaking havoc or opening security vulnerabilities.
+
+One way to work around this issue is to use fgets(). It allows you to put a limit on the maximum number of characters to read:
+
+fgets(b, 124, stdin);8/
 
 /*https://github.com/zouxiaobo/interview_back_end/blob/master/01-C-C%2B%2B%E8%AF%AD%E6%B3%95%E5%9F%BA%E7%A1%80.md
 
