@@ -52,7 +52,37 @@ union b {
 } b;
 For example, storing a character in y may automatically change the integer you read from x to something meaningless or unpredictable.*/
 
+/*This code snippet converts a floating point number to an integer using casting:
 
+float f = 1.0;
+
+int i1 = (int) f;
+int i2 = * (int *) &f;
+
+printf("%d\n, i1);
+printf("%d\n, i2);
+The following output is produced:
+
+1
+1065353216
+Can you explain why results differ?
+
+The first casting operation properly converts from a floating point number to an integer, as specified by the C standard. The second conversion, however, is first casting a float pointer to an integer pointer which is then dereferenced to get the final result. This way the compiler is effectively treating raw bits from a float (typically stored in IEEE floating point format) as if they were bits of an integer. Besides getting a wrong result you are potentially doing a “bad read” operation, in cases where sizeof(int) is greater than sizeof(float) (e.g. on some 64-bit architectures).
+
+Although this particular code is unlikely, it demonstrates one of the risks involved in typecasting when only a pointer to the variable to be cast is available. In practice, the pointer must be dereferenced before it is cast.*/
+
+/*What is the output of the following program if run on a 32-bit operating system?
+
+#include <stdio.h>
+int  main()
+{
+  int a=-2;
+  printf("%x",a>>3);
+}
+
+In a 32 bit operating system, integers are stored as 4 bytes.
+
+Since a is negative, it will be stored in 2’s complement. When an integer is negative and we want to right shift by “n” bits, we need to prepend ones (not zeros!) to the left hand side. The answer would therefore be 0xFFFF (%x prints out value in hex).*/
 
 /*https://github.com/zouxiaobo/interview_back_end/blob/master/01-C-C%2B%2B%E8%AF%AD%E6%B3%95%E5%9F%BA%E7%A1%80.md
 
