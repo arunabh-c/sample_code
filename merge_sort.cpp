@@ -1,14 +1,11 @@
-#include <iostream>
-#include <vector>
-#include <algorithm>
-
+#include <bits/stdc++.h>
 using namespace std;
 
 void merge_sort(vector<int> &ip)
 {
     if (ip.size() > 1)
     {
-        size_t half = max(size_t(0),ip.size()/2), i1 = 0, i2 = 0;
+        size_t half = ip.size()/2, i1 = 0, i2 = 0;
         vector<int> half1(ip.begin(),ip.begin()+half), half2(ip.begin()+half,ip.end());
         merge_sort(half1);//recursively call on smaller halves; half1 is sorted here
         merge_sort(half2);//half2 is sorted here
@@ -29,15 +26,14 @@ void merge_sort(vector<int> &ip)
 
 int main()
 {
-    vector<int> ip {9,8,7,6,5,4,4,3,2,1,0,-5};
+    vector<int> ip {1,9,8,7,6,5,4,4,3,2,1,0,-5,3};
     merge_sort(ip);
-    
+
     cout<<"ip: ";
     for (auto x: ip)
     {
         cout << x<< ", ";
     }
     cout<<endl;
-
     return 0;
 }
