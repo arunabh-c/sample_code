@@ -41,6 +41,7 @@ int main() {
     unsigned int r;  // the result goes here 
     int const mask = v >> sizeof(int) * CHAR_BIT - 1;
     r = (v + mask) ^ mask;
+    //the above works cos negative ints are 2's complement (flip all bits -> add 1); the mask variable will still retain the sign bit post bit shifting
 
     
 
