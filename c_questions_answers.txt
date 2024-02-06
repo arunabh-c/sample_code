@@ -122,6 +122,22 @@ SomeFun1(int *)
 //when you want value of ptr should change. i.e, it should point to some other memory other than i, use,
 SomeFun2(int **);
 
+void change(int **p, int *someOtherAddress)
+{
+    *p = someOtherAddress;
+}
+
+int a = 1, b = 2;
+int *p = &a;
+
+printf("*p = %d\n", *p);
+change(&p, &b);
+printf("*p = %d\n", *p);
+This prints
+
+*p = 1
+*p = 2
+
 /*https://github.com/zouxiaobo/interview_back_end/blob/master/01-C-C%2B%2B%E8%AF%AD%E6%B3%95%E5%9F%BA%E7%A1%80.md
 
 https://github.com/niravigad/C-interview-Questions*/
