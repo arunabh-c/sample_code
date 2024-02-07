@@ -4,6 +4,12 @@ The self-tests will test both the memory and logic circuitry. The memory tests w
 will perform read tests on EEPROM memory. After the initialization phase is completed, SUROM will select one of several image files 
 stored in EEPROM memory for booting up.
 
+EEPROM or E2PROM (electrically erasable programmable read-only memory) is a type of non-volatile memory. 
+EEPROMs are organized as arrays of floating-gate transistors. EEPROMs can be programmed and erased in-circuit, 
+by applying special programming signals. Originally, EEPROMs were limited to single-byte operations, which made them slower, 
+but modern EEPROMs allow multi-byte page operations. An EEPROM has a limited life for erasing and reprogramming, reaching a 
+million operations in modern EEPROMs. In an EEPROM that is frequently reprogrammed, the life of the EEPROM is an important design consideration.
+
 2. LOW LEVEL TESTS:
 2.1 SELF-TESTS:
 Immediately upon POR reset, SUROM performs several signature self-tests for both the RAD750 and EMC circuitry. 
