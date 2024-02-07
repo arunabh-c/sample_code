@@ -1,0 +1,27 @@
+1. SIGFPE: SIGFPE is a floating-point error. It is virtually always caused by a division by 0
+       a. Division by Zero.
+       b. Modulo Operation by Zero.
+       c. Integer Overflow.
+
+2. SIGABRT: It is an error itself is detected by the program then this signal is generated using call to abort() function. Also used by standard library to report an internal error. assert() function in C++ also uses abort() to generate this signal.
+       // Assigning excessive memory
+       int a = 100000000000;
+       int* arr = new int[a];
+
+3. NZEC: This error denotes “Non-Zero Exit Code”. For C users, this error will be generated if the main() method does not have a return 0 statement. C++ users could generate this error if they throw an exception. Below are the possible reasons of getting NZEC error:
+      a. Infinite Recursion or if you run out of stack memory.
+      b. Negative array index is accessed.
+      c. ArrayIndexOutOfBounds Exception.
+      d. StringIndexOutOfBounds Exception.
+
+4. SIGSEGV: This error is the most common error and is known as “Segmentation Fault“. It is generated when the program tries to access a memory that is not allowed to access or attempts to access a memory location in a way that is not allowed. List of some of the common reasons for segmentation faults are:
+      a. Accessing an array out of bounds.
+      b. Dereferencing NULL pointers.
+      c. Dereferencing freed memory.
+      d. Dereferencing uninitialized pointers.
+      e. Incorrect use of the “&” (address of) and “*”(dereferencing) operators.
+      f. Improper formatting specifiers in printf and scanf statements.
+      g. Stack overflow.
+      h. Writing to read-only memory.
+
+Reference: https://www.geeksforgeeks.org/runtime-errors/
