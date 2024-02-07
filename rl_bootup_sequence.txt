@@ -1,5 +1,5 @@
 1. OVERVIEW:
-Upon power-up or reset, GSP SUROM will perform self-tests, memory tests, initialization, and then will boot up the firmware image. 
+Upon power-up or reset, GSP SUROM (START UP ROM) will perform self-tests, memory tests, initialization, and then will boot up the firmware image. 
 The self-tests will test both the memory and logic circuitry. The memory tests will perform pattern tests on all RAM memories and then 
 will perform read tests on EEPROM memory. After the initialization phase is completed, SUROM will select one of several image files 
 stored in EEPROM memory for booting up.
