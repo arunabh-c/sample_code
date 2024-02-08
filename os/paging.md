@@ -37,6 +37,17 @@ Below given figure below shows the Address Translation scheme for a two-level pa
 
 ![2L Page Table_b](2_level_page_table_1.png)
 
+## 3 Level Page Table
+For 64-bit logical address space, a two-level paging scheme is not appropriate. Page size, in this case, is 4KB.If in this case, we will use the two-page level scheme then the addresses will look like this:
+
+![3L Page Table_a](3_level_page_table.png)
+
+To avoid such a large table, divide the outer page table, it will result in a Three-level page table:
+
+![3L Page Table_b](3_level_page_table.png)
+
+Reference: https://www.studytonight.com/operating-system/structure-of-page-table-in-operating-systems
+
 # Hashed Page Table
 
 ![Hashed Page Table](hashed_page_table.png)
