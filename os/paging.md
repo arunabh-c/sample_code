@@ -1,3 +1,18 @@
+Paging is a memory management scheme that eliminates the need for a contiguous allocation of physical memory. The process of retrieving processes in the form of pages from the secondary storage into the main memory is known as paging. The basic purpose of paging is to separate each procedure into pages. Additionally, frames will be used to split the main memory. This scheme permits the physical address space of a process to be non – contiguous.
+
+In paging, the physical memory is divided into fixed-size blocks called **page frames**, which are the same size as the pages used by the process. The process’s logical address space is also divided into fixed-size blocks called **pages**, which are the same size as the page frames. When a process requests memory, the operating system allocates one or more page frames to the process and maps the process’s logical pages to the physical page frames.
+
+Logical Address or Virtual Address: This is a deal that is generated through the CPU
+
+Physical Address
+
+The mapping from virtual to physical address is done by the Memory Management Unit (MMU) which is a hardware device and this mapping is known as the paging technique
+
+
+# Multi-Level Page Table
+
+
+
 
 # Hashed Page Table
 
@@ -28,3 +43,17 @@ OS uses `r` to look for the physical frame it wants in physical memory, and look
 
 Reference:
 https://cs.stackexchange.com/questions/85207/explain-hashed-page-tables-in-operating-system
+
+
+
+# Important Points About Paging in Operating Systems
+## Reduces internal fragmentation: 
+Paging facilitates lessening internal fragmentation by using allocating memory in fixed-size blocks (pages), which might be usually a whole lot smaller than the size of the process’s facts segments. This lets in for greater efficient use of memory in view that there are fewer unused bytes in each block.
+## Efficient Memory Allocation: 
+Paging enables memory to be allocated on call for, this means that memory is most effectively allocated when it’s far needed. This allows for extra efficient use of memory in view that only the pages that are absolutely used by the manner want to be allocated inside the physical memory.
+## Protection and sharing of memory: 
+Paging allows for the protection and sharing of memory between methods, as each procedure has its own page table that maps its logical deal with area to its physical address space. This permits techniques to proportion facts at the same time as preventing unauthorized get right of entry to every other’s memory.
+## External fragmentation: 
+Paging can result in outside fragmentation, wherein memory turns fragmented into small, non-contiguous blocks. This can make it difficult to allocate massive blocks of memory to a method seeing that there may not be enough contiguous free memory to be had.
+## Overhead: 
+Paging involves overhead because of the renovation of the web page table and the translation of logical addresses to physical addresses. The working device must maintain the page table for each manner and perform a deal with translation whenever a procedure accesses memory, which can slow down the machine.
