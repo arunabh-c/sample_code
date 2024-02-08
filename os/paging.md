@@ -44,7 +44,7 @@ For 64-bit logical address space, a two-level paging scheme is not appropriate. 
 
 To avoid such a large table, divide the outer page table, it will result in a Three-level page table:
 
-![3L Page Table_b](3_level_page_table.png)
+![3L Page Table_b](3_level_page_table_1.png)
 
 Reference: https://www.studytonight.com/operating-system/structure-of-page-table-in-operating-systems
 
