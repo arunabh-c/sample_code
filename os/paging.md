@@ -8,6 +8,8 @@ Physical Address
 
 The mapping from virtual to physical address is done by the Memory Management Unit (MMU) which is a hardware device and this mapping is known as the paging technique
 
+Reference: https://www.geeksforgeeks.org/paging-in-operating-system/
+
 
 # Multi-Level Page Table
 
@@ -57,3 +59,5 @@ Paging allows for the protection and sharing of memory between methods, as each 
 Paging can result in outside fragmentation, wherein memory turns fragmented into small, non-contiguous blocks. This can make it difficult to allocate massive blocks of memory to a method seeing that there may not be enough contiguous free memory to be had.
 ## Overhead: 
 Paging involves overhead because of the renovation of the web page table and the translation of logical addresses to physical addresses. The working device must maintain the page table for each manner and perform a deal with translation whenever a procedure accesses memory, which can slow down the machine.
+
+Reference: https://www.geeksforgeeks.org/paging-in-operating-system/
