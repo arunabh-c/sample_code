@@ -41,7 +41,7 @@ Thus the Logical address is as follows:
 
 ![2L Page Table_a](2_level_page_table.png)
 
-P1 is an index into the Outer Page table, P2 indicates the displacement within the page of the Inner page Table.
+P1 is an index into the Outer Page table (or page directory or page directory pointer table), P2 indicates the displacement within the page of the Inner page Table.
 
 As address translation works from outer page table inward so is known as forward-mapped Page Table.
 
@@ -59,6 +59,25 @@ To avoid such a large table, divide the outer page table, it will result in a Th
 ![3L Page Table_b](3_level_page_table_1.png)
 
 Reference: https://www.studytonight.com/operating-system/structure-of-page-table-in-operating-systems
+
+# Page Table Entry (PTE)
+
+![PTE](pte.png)
+
+**Frame Number** – It gives the frame number in which the current page you are looking for is present. The number of bits required depends on the number of frames. Frame bit is also known as address translation bit.
+Number of bits for frame = Size of physical memory / Frame Size
+
+**Present/Absent Bit**- Present or absent bit says whether a particular page you are looking for is present or absent. In case it is not present, that is called Page Fault. It is set to 0 if the corresponding page is not in memory. Used to control page faults by the operating system to support virtual memory. Sometimes this bit is also known as a valid/invalid bit.
+
+**Protection Bit**- The protection bit says what kind of protection you want on that page. So, these bits are for the protection of the page frame (read, write, etc).
+
+**Referenced Bit**- Referenced bit will say whether this page has been referred to in the last clock cycle or not. It is set to 1 by hardware when the page is accessed.
+
+**Caching Enabled/Disabled**- Sometimes we need fresh data. Let us say the user is typing some information from the keyboard and your program should run according to the input given by the user. In that case, the information will come into the main memory. Therefore main memory contains the latest information which is typed by the user. Now if you try to put that page in the cache, that cache will show the old information. So whenever freshness is required, we don’t want to go for caching or many levels of memory. The information present in the closest level to the CPU and the information present in the closest level to the user might be different. So we want the information to be consistent, which means whatever information the user has given, the CPU should be able to see it as first as possible. That is the reason we want to disable caching. So, this bit enables or disables caching of the page.
+
+**Modified Bit**- Modified bit says whether the page has been modified or not. Modified means sometimes you might try to write something onto the page. If a page is modified, then whenever you should replace that page with some other page, then the modified information should be kept on the hard disk or it has to be written back or it has to be saved back. It is set to 1 by hardware on the write-access to a page which is used to avoid writing when swapped out. Sometimes this modified bit is also called the Dirty bit.
+
+Reference: https://www.geeksforgeeks.org/page-table-entries-in-page-table/
 
 # Hashed Page Table
 
