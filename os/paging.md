@@ -61,6 +61,20 @@ To avoid such a large table, divide the outer page table, it will result in a Th
 
 Reference: https://www.studytonight.com/operating-system/structure-of-page-table-in-operating-systems
 
+# Main Features of Paging in Operating Systems
+## Reduces internal fragmentation: 
+Paging facilitates lessening internal fragmentation by using allocating memory in fixed-size blocks (pages), which might be usually a whole lot smaller than the size of the process’s facts segments. This lets in for greater efficient use of memory in view that there are fewer unused bytes in each block.
+## Efficient Memory Allocation: 
+Paging enables memory to be allocated on call for, this means that memory is most effectively allocated when it’s far needed. This allows for extra efficient use of memory in view that only the pages that are absolutely used by the manner want to be allocated inside the physical memory.
+## Protection and sharing of memory: 
+Paging allows for the protection and sharing of memory between methods, as each procedure has its own page table that maps its logical deal with area to its physical address space. This permits techniques to proportion facts at the same time as preventing unauthorized get right of entry to every other’s memory.
+## External fragmentation: 
+Paging can result in outside fragmentation, wherein memory turns fragmented into small, non-contiguous blocks. This can make it difficult to allocate massive blocks of memory to a method seeing that there may not be enough contiguous free memory to be had.
+## Overhead: 
+Paging involves overhead because of the renovation of the web page table and the translation of logical addresses to physical addresses. The working device must maintain the page table for each manner and perform a deal with translation whenever a procedure accesses memory, which can slow down the machine.
+
+Reference: https://www.geeksforgeeks.org/paging-in-operating-system/
+
 # Page Table Entry (PTE)
 
 ![PTE](pte.png)
@@ -127,21 +141,6 @@ When a memory reference takes place, this virtual address is matched by the Memo
 **Improved Cache Performance**: Because the IPT is smaller than a Page Table, it can be more easily stored in the CPU cache, which can improve the performance of memory access operations.
 
 Reference: https://www.geeksforgeeks.org/inverted-page-table-in-operating-system/
-
-
-# Important Points About Paging in Operating Systems
-## Reduces internal fragmentation: 
-Paging facilitates lessening internal fragmentation by using allocating memory in fixed-size blocks (pages), which might be usually a whole lot smaller than the size of the process’s facts segments. This lets in for greater efficient use of memory in view that there are fewer unused bytes in each block.
-## Efficient Memory Allocation: 
-Paging enables memory to be allocated on call for, this means that memory is most effectively allocated when it’s far needed. This allows for extra efficient use of memory in view that only the pages that are absolutely used by the manner want to be allocated inside the physical memory.
-## Protection and sharing of memory: 
-Paging allows for the protection and sharing of memory between methods, as each procedure has its own page table that maps its logical deal with area to its physical address space. This permits techniques to proportion facts at the same time as preventing unauthorized get right of entry to every other’s memory.
-## External fragmentation: 
-Paging can result in outside fragmentation, wherein memory turns fragmented into small, non-contiguous blocks. This can make it difficult to allocate massive blocks of memory to a method seeing that there may not be enough contiguous free memory to be had.
-## Overhead: 
-Paging involves overhead because of the renovation of the web page table and the translation of logical addresses to physical addresses. The working device must maintain the page table for each manner and perform a deal with translation whenever a procedure accesses memory, which can slow down the machine.
-
-Reference: https://www.geeksforgeeks.org/paging-in-operating-system/
 
 # Final Sequence of Fetch
 The CPU generates the logical address, which contains the page number and the page offset.
