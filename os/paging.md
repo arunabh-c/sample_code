@@ -14,6 +14,18 @@ PTBR means page table base register and it is basically used to hold the base ad
 
 Reference: https://www.studytonight.com/operating-system/structure-of-page-table-in-operating-systems
 
+# Page Table Size
+The main problem with page tables is that they can get pretty big. Let’s check out an example to see how big a page table can get. We’ll focus on a 32-bit machine using 4kB page sizes.
+
+Our page table is an array consisting of multiple page table entries (PTEs)
+
+To find information inside each page, a PTE allocates some page address bits for the page offset and uses the rest for the actual page number. With a 4kB page size, we need 12 bits for the page offset to reach the entire page. That leaves 20 bits for pages. With 20 bits that can be either 0 or 1, we have 2^20 combinations. So, This means that we need 
+2^20 ≈ 1 million page table entries.
+
+For each PTE, we need about 4 bytes. So, this works out to 1 million PTEs times 4 bytes, which is a 4MB. Although that’s not that bad, the problem is that **each program needs its page table**. For a system running 100 applications (which is typical on modern computers), this racks up to 400MB. This is a significant amount of memory to store page tables, and this information mustn’t be swapped out to the disk. It has to stay in RAM.
+
+To counter this problem, systems incorporate multi-level page tables.
+
 
 # Multi-Level Page Table
 
