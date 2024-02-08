@@ -110,8 +110,6 @@ OS uses `r` to look for the physical frame it wants in physical memory, and look
 Reference:
 https://cs.stackexchange.com/questions/85207/explain-hashed-page-tables-in-operating-system
 
-
-
 # Important Points About Paging in Operating Systems
 ## Reduces internal fragmentation: 
 Paging facilitates lessening internal fragmentation by using allocating memory in fixed-size blocks (pages), which might be usually a whole lot smaller than the size of the process’s facts segments. This lets in for greater efficient use of memory in view that there are fewer unused bytes in each block.
@@ -125,3 +123,43 @@ Paging can result in outside fragmentation, wherein memory turns fragmented into
 Paging involves overhead because of the renovation of the web page table and the translation of logical addresses to physical addresses. The working device must maintain the page table for each manner and perform a deal with translation whenever a procedure accesses memory, which can slow down the machine.
 
 Reference: https://www.geeksforgeeks.org/paging-in-operating-system/
+
+# Final Sequence of Fetch
+The CPU generates the logical address, which contains the page number and the page offset.
+The page number is used to index into the page table, to get the corresponding page frame number, and once we have the page frame of the physical memory(also called main memory), we can apply the page offset to get the right word of memory.
+
+## Why TLB(Translation Look Aside Buffer)
+
+The thing is that page table is stored in physical memory, and sometimes can be very large, **so to speed up the translation of logical address to physical address** , we sometimes use TLB, **which is made of expensive and faster associative memory**, So instead of going into page table first, we go into the TLB and use page number to index into the TLB, and get the corresponding page frame number and if it is found, we completely avoid page table( because we have both the page frame number and the page offset) and form the physical address.
+
+## TLB Miss
+
+If we don't find the page frame number inside the TLB, it is called a TLB miss only then we go to the page table to look for the corresponding page frame number.
+
+## TLB Hit
+
+If we find the page frame number in TLB, its called TLB hit, and we don't need to go to page table.
+
+## Page Fault
+
+Occurs when the page accessed by a running program is not present in physical memory. It means the page is present in the secondary memory but not yet loaded into a frame of physical memory.
+
+## Cache Hit
+
+Cache Memory is a small memory that operates at a faster speed than physical memory and we always go to cache before we go to physical memory. If we are able to locate the corresponding word in cache memory inside the cache, its called cache hit and we don't even need to go to the physical memory.
+
+## Cache Miss
+
+It is only after when mapping to cache memory is unable to find the corresponding block(block similar to physical memory page frame) of memory inside cache ( called cache miss ), then we go to physical memory and do all that process of going through page table or TLB.
+
+So the flow is basically this
+
+1.First go to the cache memory and if its a cache hit, then we are done.
+
+2. If its a cache miss, go to step 3.
+
+3. First go to TLB and if its a TLB hit, go to physical memory using physical address formed, we are done.
+
+4. If its a TLB miss, then go to page table to get the frame number of your page for forming the physical address.
+
+5. If the page  is not found, its a page fault. Use one of the page replacement algorithms if all the frames are occupied by some page else just load the required page from secondary memory to physical memory frame.
