@@ -170,7 +170,7 @@ Cache Memory is a small memory that operates at a faster speed than physical mem
 
 It is only after when mapping to cache memory is unable to find the corresponding block(block similar to physical memory page frame) of memory inside cache ( called cache miss ), then we go to physical memory and do all that process of going through page table or TLB.
 
-So the flow is basically this
+## So the flow is
 
 1.First go to the cache memory and if its a cache hit, then we are done.
 
