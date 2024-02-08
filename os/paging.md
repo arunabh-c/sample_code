@@ -110,6 +110,25 @@ OS uses `r` to look for the physical frame it wants in physical memory, and look
 Reference:
 https://cs.stackexchange.com/questions/85207/explain-hashed-page-tables-in-operating-system
 
+# Inverted Page Table
+Unlike a traditional Page Table, which is a per-process data structure, an IPT is a system-wide data structure that contains an entry for each physical page in memory. the overhead of storing an individual page table for every process gets eliminated and only a fixed portion of memory is required to store the paging information of all the processes together.
+
+The Inverted Page table and its variations are implemented in various systems like PowerPC, UltraSPARC, and the IA-64 architecture.
+
+When a memory reference takes place, this virtual address is matched by the Memory Management Unit(MMU), the Inverted Page table is searched and the corresponding frame number is obtained. If the match is found at the ith entry then the physical address of the process is sent as the real address otherwise if no match is found then Segmentation Fault is generated. Note: Number of Entries in Inverted page table = Number of frames in Physical Address Space(PAS).
+
+## Main Features of IPT
+
+**Reduced Memory Space**: Inverted Page Tables typically reduce the amount of memory required to store the page tables to a size bound of physical memory. The maximum number of entries could be the number of page frames in the physical memory.
+**Longer Lookup Time**: Inverted Page tables are sorted in order of frame number but the memory look-up takes place concerning the virtual address, so, it usually takes a longer time to find the appropriate entry often these page tables are implemented using hash data structures for a faster lookup.
+**Difficult Shared Memory Implementation**: As the Inverted Page Table stores a single entry for each frame, it becomes difficult to implement the shared memory in the page tables. Chaining techniques are used to map more than one virtual address to the entry specified in the order of frame number.
+**Optimal and Less Complex**: it is better than a simple paging process and has less complexity.
+**Simplified Page Swapping**: When a process needs to be swapped out of memory, the IPT can be used to quickly identify all the physical pages that are associated with the process. This can simplify the process of swapping pages and reduce the overall overhead of memory management.
+**Improved Cache Performance**: Because the IPT is smaller than a Page Table, it can be more easily stored in the CPU cache, which can improve the performance of memory access operations.
+
+Reference: https://www.geeksforgeeks.org/inverted-page-table-in-operating-system/
+
+
 # Important Points About Paging in Operating Systems
 ## Reduces internal fragmentation: 
 Paging facilitates lessening internal fragmentation by using allocating memory in fixed-size blocks (pages), which might be usually a whole lot smaller than the size of the process’s facts segments. This lets in for greater efficient use of memory in view that there are fewer unused bytes in each block.
@@ -163,3 +182,5 @@ So the flow is basically this
 4. If its a TLB miss, then go to page table to get the frame number of your page for forming the physical address.
 
 5. If the page  is not found, its a page fault. Use one of the page replacement algorithms if all the frames are occupied by some page else just load the required page from secondary memory to physical memory frame.
+
+Reference: https://stackoverflow.com/questions/37825859/cache-miss-a-tlb-miss-and-page-fault
