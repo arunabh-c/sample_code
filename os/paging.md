@@ -10,11 +10,32 @@ The mapping from virtual to physical address is done by the Memory Management Un
 
 Reference: https://www.geeksforgeeks.org/paging-in-operating-system/
 
+PTBR means page table base register and it is basically used to hold the base address for the page table of the current process.
+
+Reference: https://www.studytonight.com/operating-system/structure-of-page-table-in-operating-systems
+
 
 # Multi-Level Page Table
 
+## 2 Level Page Table
 
+32-bit logical address space and a page size of 1 KB. logical add. further divided into:
 
+Page Number: 22 bits., Page Offset : 10 bits.
+
+Page Number consisting of 12 bits, Page Offset consisting of 10 bits.
+
+Thus the Logical address is as follows:
+
+![2L Page Table_a](2_level_page_table.png)
+
+P1 is an index into the Outer Page table, P2 indicates the displacement within the page of the Inner page Table.
+
+As address translation works from outer page table inward so is known as forward-mapped Page Table.
+
+Below given figure below shows the Address Translation scheme for a two-level page table
+
+![2L Page Table_b](2_level_page_table_1.png)
 
 # Hashed Page Table
 
