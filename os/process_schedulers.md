@@ -2,13 +2,6 @@
 Process scheduling is the activity of the process manager that handles the removal of the running process from the CPU and the selection of another process based on a particular strategy. 
 Process scheduling is an essential part of a Multiprogramming operating system. Such operating systems allow more than one process to be loaded into the executable memory at a time and the loaded process shares the CPU using time multiplexing.
 
-# Categories of Scheduling
-## Non-preemptive: 
-Process’s resource cannot be taken before the process has finished running. When a running process finishes and transitions to a waiting state, resources are switched.
-## Preemptive: 
-OS assigns resources to a process for a predetermined period. The process switches from running state to ready state or from waiting for state to ready state during resource allocation. 
-This switching happens because the CPU may give other processes priority and substitute the currently active process for the higher priority process.
-
 # Types of Process Schedulers
 ## Long Term or Job Scheduler
 Brings the new process to the ‘Ready State’. It controls the Degree of Multi-programming, i.e., the number of processes present in a ready state at any point in time. It is important that the long-term scheduler make a careful selection of both I/O and CPU-bound processes. 
@@ -84,3 +77,34 @@ All this information is required and must be saved when the process is switched 
 5. **Miscellaneous accounting and status data**: This field includes information about the amount of CPU used, time constraints, jobs or process number, etc. The process control block stores the register content also known as execution content of the processor when it was blocked from running. This execution content architecture enables the operating system to restore a process’s execution context when the process returns to the running state. When the process makes a transition from one state to another, the operating system updates its information in the process’s PCB. The operating system maintains pointers to each process’s PCB in a process table so that it can access the PCB quickly.
 
 Reference: https://www.geeksforgeeks.org/process-table-and-process-control-block-pcb/
+
+# CPU Scheduling Algorithms
+## Objectives of Process Scheduling Algorithm:
+1. Utilization of CPU at maximum level.  **Keep CPU as busy as possible.**
+2. **Allocation of CPU should be fair.**
+3. **Throughput should be Maximum**. i.e. Number of processes that complete their execution per time unit should be maximized.
+4. **Minimum turnaround time**, i.e. time taken by a process to finish execution should be the least.
+5. There should be a **minimum waiting time** and the process should not starve in the ready queue.
+6. **Minimum response time**. It means that the time when a process produces the first response should be as less as possible.
+
+## CPU Scheduling Terms:
+1. **Arrival Time**: Time at which the process arrives in the ready queue.
+2. **Completion Time**: Time at which process completes its execution.
+3. **Burst Time**: Time required by a process for CPU execution.
+4. **Turn Around Time**: Time Difference between completion time and arrival time.
+Turn Around Time = Completion Time  –  Arrival Time
+5. **Waiting Time(W.T)**: Time Difference between turn around time and burst time.
+Waiting Time = Turn Around Time  –  Burst Time
+
+## Categories of Scheduling
+## Non-preemptive: 
+Process’s resource cannot be taken before the process has finished running. When a running process finishes and transitions to a waiting state, resources are switched.
+## Preemptive: 
+OS assigns resources to a process for a predetermined period. The process switches from running state to ready state or from waiting for state to ready state during resource allocation. 
+This switching happens because the CPU may give other processes priority and substitute the currently active process for the higher priority process.
+
+![CPU Schdeuling Algos](UntitledDiagram12.jpg)
+
+**1. First Come First Serve (FCFS)**
+
+Reference: https://www.geeksforgeeks.org/cpu-scheduling-in-operating-systems/#
