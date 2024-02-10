@@ -124,5 +124,47 @@ This switching happens because the CPU may give other processes priority and sub
 4. This may lead to convoy effect.
 
 **4. Priority Scheduling**
+1. Schedules tasks based on priority.
+2. The average waiting time is less than FCFS
+3. Less complex
+4. Starvation Problem
+
+**5. Round Robin**
+1. starvation-free as all processes get the balanced CPU allocation.
+2. One of the most widely used methods in CPU scheduling as a core.
+
+**6. Shortest Remaining Time First (SRTF)**
+1. SRTF algorithm makes the processing of the jobs faster than SJF algorithm, given it’s overhead charges are not counted.
+2. The context switch is done a lot more times in SRTF than in SJF and consumes the CPU’s valuable time for processing. This adds up to its processing time and diminishes its advantage of fast processing.
+3. The system also requires very little overhead since it only makes a decision when a process completes or a new process is added.
+4. process starvation
+
+**7. Longest Remaining Time First (LRTF)**
+1. Same as LJF.
+
+**8. Highest Response Ratio Next**
+1. One of the most optimal scheduling algorithms. The name itself states that we need to find the response ratio of all available processes and select the one with the highest Response Ratio.
+2. HRRN is considered as the modification of Shortest Job First to reduce the problem of starvation.
+3. CPU is allotted to the next process which has the highest response ratio and not to the process having less burst time.
+4. Response Ratio = (W + S)/S where, W is the waiting time of the process so far and S is the Burst time of the process.
+5. generally gives better performance than the shortest job first Scheduling.
+6. There is a reduction in waiting time for longer jobs and also it encourages shorter jobs.
+7. implementation of HRRN scheduling is not possible as it is not possible to know the burst time of every job in advance.
+8. there may occur an overload on the CPU.
+
+**9. Multiple Queue Scheduling**
+![MQS](mqs.png)
+1. Processes in the ready queue can be divided into different classes where each class has its own scheduling needs. For example, a common division is a foreground (interactive) process and a background (batch) process. These two classes have different scheduling needs. For this kind of situation Multilevel Queue Scheduling is used.
+2. a. **System Processes**: The CPU itself has its process to run, generally termed as System Process.
+   b. **Interactive Processes**: An Interactive Process is a type of process in which there should be the same type of interaction.
+   c. **Batch Processes**: Batch processing is generally a technique in the Operating system that collects the programs and data together in the form of a batch before the processing starts.
+3. low scheduling overhead
+4. Starvation problem
+5. inflexible in nature
+
+**10. Multilevel Feedback Queue Scheduling**
+1. like  Multilevel Queue Scheduling but in this process can move between the queues
+2. more flexible
+3. produces CPU overheads, most complex algorithm.
 
 Reference: https://www.geeksforgeeks.org/cpu-scheduling-in-operating-systems/#
