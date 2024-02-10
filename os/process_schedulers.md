@@ -27,9 +27,9 @@ Responsible for loading the process selected by the Short-term scheduler on the 
 Responsible for suspending and resuming the process. It mainly does swapping (moving processes from main memory to disk and vice versa). Swapping may be necessary to improve the process mix or because a change in memory requirements has overcommitted available memory, requiring memory to be freed up. It is helpful in maintaining a perfect balance between the I/O bound and the CPU bound. It reduces the degree of multiprogramming.
 
 ## Comparison
-| Long Term Scheduler	| Short term schedular	| Medium Term Scheduler |
-| --- | --- | ---|
-| It is a job scheduler	| It is a CPU scheduler	| It is a process-swapping scheduler |
+Long Term Scheduler	| Short term schedular	| Medium Term Scheduler
+--- | --- | ---
+It is a job scheduler	| It is a CPU scheduler	| It is a process-swapping scheduler
 Generally, Speed is lesser than short term scheduler	Speed is the fastest among all of them.	Speed lies in between both short and long-term schedulers.
 It controls the degree of multiprogramming	It gives less control over how much multiprogramming is done.	It reduces the degree of multiprogramming.
 It is barely present or nonexistent in the time-sharing system.	It is a minimal time-sharing system.	It is a component of systems for time sharing.
