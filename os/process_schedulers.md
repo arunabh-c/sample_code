@@ -153,6 +153,7 @@ This switching happens because the CPU may give other processes priority and sub
 8. there may occur an overload on the CPU.
 
 **9. Multiple Queue Scheduling**
+
 ![MQS](mqs.png)
 1. Processes in the ready queue can be divided into different classes where each class has its own scheduling needs. For example, a common division is a foreground (interactive) process and a background (batch) process. These two classes have different scheduling needs. For this kind of situation Multilevel Queue Scheduling is used.
 2. a. **System Processes**: The CPU itself has its process to run, generally termed as System Process.
