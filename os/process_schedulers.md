@@ -49,16 +49,38 @@ The state of the currently running process is saved into the process control blo
 Reference: https://www.geeksforgeeks.org/process-schedulers-in-operating-system/
 
 # Process Control Block & Process Table
-While creating a process, the operating system performs several operations. To identify the processes, it assigns a process identification number (PID) to each process. As the operating system supports multi-programming, it needs to keep track of all the processes. For this task, the process control block (PCB) is used to track the process’s execution status. Each block of memory contains information about the process state, program counter, stack pointer, status of opened files, scheduling algorithms, etc.
+While creating a process, the operating system performs several operations. To identify the processes, it assigns a **process identification number (PID)** to each process. As the operating system supports multi-programming, it needs to keep track of all the processes. For this task, the process control block (PCB) is used to track the process’s execution status. Each block of memory contains information about the process state, program counter, stack pointer, status of opened files, scheduling algorithms, etc.
 
 All this information is required and must be saved when the process is switched from one state to another. When the process makes a transition from one state to another, the operating system must update information in the process’s PCB. A process control block (PCB) contains information about the process, i.e. registers, quantum, priority, etc. The process table is an array of PCBs, that means logically contains a PCB for all of the current processes in the system.
 
 ![Proces Control Block](process-table.jpg)
 
-1. Pointer: It is a stack pointer that is required to be saved when the process is switched from one state to another to retain the current position of the process.
-2. Process state: It stores the respective state of the process.
-3. Process number: Every process is assigned a unique id known as process ID or PID which stores the process identifier.
-4. Program counter: It stores the counter,: which contains the address of the next instruction that is to be executed for the process.
-5. Register: These are the CPU registers which include the accumulator, base, registers, and general-purpose registers.
-6. Memory limits: This field contains the information about memory management system used by the operating system. This may include page tables, segment tables, etc.
-7. Open files list : This information includes the list of files opened for a process.
+1. **Pointer**: It is a stack pointer that is required to be saved when the process is switched from one state to another to retain the current position of the process.
+2. **Process state**: It stores the respective state of the process.
+3. **Process number**: Every process is assigned a unique id known as process ID or PID which stores the process identifier.
+4. **Program counter**: It stores the counter,: which contains the address of the next instruction that is to be executed for the process.
+5. **Register**: These are the CPU registers which include the accumulator, base, registers, and general-purpose registers.
+6. **Memory limits**: This field contains the information about memory management system used by the operating system. This may include page tables, segment tables, etc.
+7. **Open files list** : This information includes the list of files opened for a process.
+
+## Additional Aspects
+1. **Interrupt handling**: The PCB also contains information about the interrupts that a process may have generated and how they were handled by the operating system.
+2. **Real-time systems**: Real-time operating systems may require additional information in the PCB, such as deadlines and priorities, to ensure that time-critical processes are executed in a timely manner.
+3. **Virtual memory management**: The PCB may contain information about a process’s virtual memory management, such as page tables and page fault handling.
+4. **Inter-process communication**: The PCB can be used to facilitate inter-process communication by storing information about shared resources and communication channels between processes.
+5. **Fault tolerance**: Some operating systems may use multiple copies of the PCB to provide fault tolerance in case of hardware failures or software errors.
+
+## Advantages
+1. **Efficient process management**: The process table and PCB provide an efficient way to manage processes in an operating system. The process table contains all the information about each process, while the PCB contains the current state of the process, such as the program counter and CPU registers.
+2. **Resource management**: The process table and PCB allow the operating system to manage system resources, such as memory and CPU time, efficiently. By keeping track of each process’s resource usage, the operating system can ensure that all processes have access to the resources they need.
+3. **Process synchronization**: The process table and PCB can be used to synchronize processes in an operating system. The PCB contains information about each process’s synchronization state, such as its waiting status and the resources it is waiting for.
+4. **Process scheduling**: The process table and PCB can be used to schedule processes for execution. By keeping track of each process’s state and resource usage, the operating system can determine which processes should be executed next.
+
+## Disadvantages
+1. **Overhead**: The process table and PCB can introduce overhead and reduce system performance. The operating system must maintain the process table and PCB for each process, which can consume system resources.
+2. **Complexity**: The process table and PCB can increase system complexity and make it more challenging to develop and maintain operating systems. The need to manage and synchronize multiple processes can make it more difficult to design and implement system features and ensure system stability.
+3. **Scalability**: The process table and PCB may not scale well for large-scale systems with many processes. As the number of processes increases, the process table and PCB can become larger and more difficult to manage efficiently.
+4. **Security**: The process table and PCB can introduce security risks if they are not implemented correctly. Malicious programs can potentially access or modify the process table and PCB to gain unauthorized access to system resources or cause system instability.
+5. **Miscellaneous accounting and status data**: This field includes information about the amount of CPU used, time constraints, jobs or process number, etc. The process control block stores the register content also known as execution content of the processor when it was blocked from running. This execution content architecture enables the operating system to restore a process’s execution context when the process returns to the running state. When the process makes a transition from one state to another, the operating system updates its information in the process’s PCB. The operating system maintains pointers to each process’s PCB in a process table so that it can access the PCB quickly.
+
+Reference: https://www.geeksforgeeks.org/process-table-and-process-control-block-pcb/
