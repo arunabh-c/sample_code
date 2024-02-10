@@ -53,4 +53,6 @@ While creating a process, the operating system performs several operations. To i
 
 All this information is required and must be saved when the process is switched from one state to another. When the process makes a transition from one state to another, the operating system must update information in the process’s PCB. A process control block (PCB) contains information about the process, i.e. registers, quantum, priority, etc. The process table is an array of PCBs, that means logically contains a PCB for all of the current processes in the system.
 
+![Proces Control Block](process-table.jpg)
+
 
