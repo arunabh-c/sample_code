@@ -103,8 +103,14 @@ Process’s resource cannot be taken before the process has finished running. Wh
 OS assigns resources to a process for a predetermined period. The process switches from running state to ready state or from waiting for state to ready state during resource allocation. 
 This switching happens because the CPU may give other processes priority and substitute the currently active process for the higher priority process.
 
-![CPU Schdeuling Algos](UntitledDiagram12.jpg)
+![CPU Scheduling Algos](UntitledDiagram12.jpg)
 
 **1. First Come First Serve (FCFS)**
+1. FCFS suffers from Convoy effect.
+2. The average waiting time is much higher than the other algorithms.
+3. FCFS is very simple and easy to implement and hence not much efficient.
+
+**2. Shortest Job First (SJF)**
+
 
 Reference: https://www.geeksforgeeks.org/cpu-scheduling-in-operating-systems/#
