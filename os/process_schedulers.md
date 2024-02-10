@@ -111,6 +111,18 @@ This switching happens because the CPU may give other processes priority and sub
 3. FCFS is very simple and easy to implement and hence not much efficient.
 
 **2. Shortest Job First (SJF)**
+1. Shortest Job first has the advantage of having a minimum average waiting time among all operating system scheduling algorithms.
+2. It may cause starvation if shorter processes keep coming. This problem can be solved using the concept of ageing.
+3. SJF is generally used for long term scheduling
+4. One of the demerit SJF has is starvation.
+5. Many times it becomes complicated to predict the length of the upcoming CPU request
 
+**3. Longest Job First (LJF)**
+1. If two processes have the same burst time then the tie is broken using FCFS i.e. the process that arrived first is processed first.
+2. All the jobs or processes finish at the same time approximately.
+3. Generally, the LJF algorithm gives a very high average waiting time and average turn-around time for a given set of processes.
+4. This may lead to convoy effect.
+
+**4. Priority Scheduling**
 
 Reference: https://www.geeksforgeeks.org/cpu-scheduling-in-operating-systems/#
