@@ -17,11 +17,11 @@ I/O-bound tasks are which use much of their time in input and output operations 
 ## Short-Term or CPU Scheduler
 Responsible for selecting one process from the ready state for scheduling it on the running state. Note: Short-term scheduler only selects the process to schedule it doesn’t load the process on running.  Here is when all the scheduling algorithms are used. The CPU scheduler is responsible for ensuring no starvation due to high burst time processes.
 
-### Dispatcher
-Responsible for loading the process selected by the Short-term scheduler on the CPU (Ready to Running State) Context switching is done by the dispatcher only. A dispatcher does the following: 
-1. Switching context.
-2. Switching to user mode.
-3. Jumping to the proper location in the newly loaded program.
+    ### Dispatcher
+    Responsible for loading the process selected by the Short-term scheduler on the CPU (Ready to Running State) Context switching is done by the dispatcher only. A dispatcher does the following: 
+    1. Switching context.
+    2. Switching to user mode.
+    3. Jumping to the proper location in the newly loaded program.
 
 ## Medium-Term Scheduler
 Responsible for suspending and resuming the process. It mainly does swapping (moving processes from main memory to disk and vice versa). Swapping may be necessary to improve the process mix or because a change in memory requirements has overcommitted available memory, requiring memory to be freed up. It is helpful in maintaining a perfect balance between the I/O bound and the CPU bound. It reduces the degree of multiprogramming.
