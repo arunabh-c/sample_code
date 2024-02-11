@@ -17,7 +17,8 @@ int main()
     */
   
     // Invoking fun() using fun_ptr 
-    (*fun_ptr)(10); 
+    //(*fun_ptr)(10);
+    fun_ptr(10);  // * removed 
   
     return 0; 
 } 
