@@ -9,3 +9,9 @@ To do:
 4. function pointers
 5. c pointers
 6. move semantics
+7. TLB
+8. posix threads
+9. semaphores
+10. memory amangement & mmu
+11. concurrency in C
+12. 
