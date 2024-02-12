@@ -14,4 +14,4 @@ To do:
 9. semaphores
 10. memory amangement & mmu
 11. concurrency in C
-12. 
+12. uC boot up procedure
