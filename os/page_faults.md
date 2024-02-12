@@ -49,7 +49,22 @@ Generally if we increase the number of frames in the memory, the number of page 
 
 ## Optimal Page Replacement
 . Used as the benchmark for other algorithms
+
 . More time consuming
+
 . Difficult for error handling
+
 . Need future awareness of the programs, which is not possible every time
+
+## LRU
+This algorithm works on the basis of the principle of locality of a reference which states that a program has a tendency to access the same set of memory locations repetitively over a short period of time. So pages that have been used heavily in the past are most likely to be used heavily in the future also.
+. Doesn’t suffer from Belady’s anomaly
+
+. Often more efficient than other algorithms
+
+. It requires additional data structures to be implemented
+
+. More complex
+
+. High hardware assistance is required
 
