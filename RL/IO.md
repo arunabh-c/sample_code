@@ -49,7 +49,49 @@ An Application can perform the following functions on a Job:
 5.	Enable a Job Once.
 6.	Get Status of a Job.
 
+# Inter-Processor Communication Interface Overview
 
+I/O also provides the interface for Applications to route data between processors. The bus controller processor can communicate with one or two processors that are RTs on the 1553 bus. 
 
+I/O manages the flow of 1553 traffic between the processors, and provides the following mechanisms for inter-processor communication:
+1.	Read a block of memory from a remote processor.
+2.	Write a block of memory to a remote processor.
+3.	Enqueue a message in a Registered Queue of a remote processor.
+4.	Find out which is the local processor number.
+5.	Find out which is the primary processor number.
+6.	Determine if the local processor is primary.
 
+# RT Device Addressing
+RT Devices are addressed by Applications using a unique logical address. 
+
+There are four categories of RTs: 
+1.	Generic MBUS RTs 
+2.	IOBIC (I/O Bus Integrated Circuit) RTs 
+3.	Router RTs 
+4.	1553 RTs 
+
+## Generic MBUS RT and IOBIC RT:
+I/O has to map the logical address to a physical channel number (0-3), bus number (0-3), and MBUS target ID (0-15). 
+![Logical device mapping for IOBIC/Generic MBUS RT devices](mbus_rt_device_mapping.png)
+
+## Router/SIA RT:
+In addition to all the inputs listed for the Generic MBUS and IOBIC RTs, devices in this category require a SBUS port number (0-63). 
+An SBUS Table maps logical Router/Serial Interface Adapter (SIA) devices (by SIA address) to an index in the MBUS Table, and provides the SBUS port number. 
+![Logical device mapping for Router/SIA devices](router_sia_device_mapping.png)
+
+## 1553 RT:
+1553 RT devices have to be mapped to an RT address (0-31) and a bus (A or B). 
+A 1553 device mapping table maps logical 1553 device addresses to a specific bus and RT number.
+![Logical device mapping for 1553 devices](1553_device_mapping.png)
+
+## Bus Adapter Interface Architecture
+The GSP and Bus Adapter communicate over shared memory, which is mapped in the PCI memory space. A fixed block of the Bus Adapter SRAM is dedicated to the Bus Adapter Interface Block. This block is located at address 0x100000 from the Bus Adapter’s perspective, which translates to 0xE0100000 from the GSP perspective.  
+
+The Bus Adapter Interface block consists of:
+•	information which provides mechanisms for outbound and inbound I/O data transfer 
+•	a P-Table to indicate the local processor number and which processor number is currently primary 
+•	a link to the Command Message Queue 
+•	a link to the Bus Adapter’s telemetry block
+•	a status word to indicate that the Bus Adapter has finished initialization.
+![Bus Adapter Interface Block](BA_Interface_Block.png)
 
