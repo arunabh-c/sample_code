@@ -12,3 +12,18 @@ A page fault occurs when a program attempts to access data or code that is in it
 8. When disk interrupt indicates **page has arrived, page tables are updated** to reflect its position, and frame marked as being in normal state.
 9. **Faulting instruction is backed up to state it had** when it began and PC is reset. Faulting is scheduled, **operating system returns to routine** that called it.
 10. Assembly Routine **reloads register and other state information, returns to user space** to continue execution.
+
+# Terminologies
+**1. Page Hit** When the CPU attempts to obtain a needed page from main memory and the page exists in main memory (RAM).
+
+**2. Page Miss** If the needed page has not existed in the main memory (RAM).
+
+**3. Page Fault Time** The time it takes to get a page from secondary memory and recover it from the main memory after loading the required page.
+
+**4. Page Fault Rate** The rate at which threads locate page faults in memory. The page fault rate is measured per second.
+
+**5. Hard Page Fault** If a required page exists in the hard disk's page file.
+
+**6. Soft Page Fault** If a required page is not located on the hard disk but is found somewhere else in memory.
+
+**7. Minor Page Fault** If a process needs data and that data exists in memory but is being allotted to another process at the same moment.
