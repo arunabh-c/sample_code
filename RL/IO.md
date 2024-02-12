@@ -17,3 +17,14 @@ I/O interfaces with the Bus Adapter over a compact PCI bus. The Bus Adapter prov
 
 ![I/O Architecture](IO_arch.png)
 
+# Operation
+
+I/O data can be thought of as data formatted in outbound buffers for use on Remote Terminals and processed data received in the inbound buffers for use on the GSP Applications. 
+
+The outbound data encodes read and write requests to the RT devices, and the inbound data contains responses for those requests. 
+
+I/O requests are scheduled and sent out on a subcycle basis, and can be scheduled up to one major cycle in advance 
+
+At the beginning of each subcycle, I/O sends out the I/O requests scheduled for that subcycle and processes all available I/O responses, which are fed back in First In First Out (FIFO) fashion.  I/O maintains separate I/O buffers for outbound requests for all sixteen subcycles, which are populated when Applications create and schedule requests.
+
+![I/O Data Flow](io_data_flow.png)
