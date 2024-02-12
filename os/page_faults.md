@@ -13,6 +13,8 @@ A page fault occurs when a program attempts to access data or code that is in it
 9. **Faulting instruction is backed up to state it had** when it began and PC is reset. Faulting is scheduled, **operating system returns to routine** that called it.
 10. Assembly Routine **reloads register and other state information, returns to user space** to continue execution.
 
+Reference: https://www.geeksforgeeks.org/page-fault-handling-in-operating-system/
+
 # Terminologies
 **1. Page Hit** When the CPU attempts to obtain a needed page from main memory and the page exists in main memory (RAM).
 
@@ -27,3 +29,9 @@ A page fault occurs when a program attempts to access data or code that is in it
 **6. Soft Page Fault** If a required page is not located on the hard disk but is found somewhere else in memory.
 
 **7. Minor Page Fault** If a process needs data and that data exists in memory but is being allotted to another process at the same moment.
+
+Reference: https://www.javatpoint.com/page-fault-handling-in-operating-system
+
+8. **Invalid Page Fault** is when the kernel's page-fault handler decides that the process doesn't even logically have that virtual address mapped. e.g. a NULL pointer deref - virtual address 0 isn't mapped in the HW page tables (thus a #PF x86 hardware exception), and when the kernel checks how to correct the situation and retry the faulting instruction, it finds there's no fix. (On Linux, the kernel delivers a SIGSEGV signal (segfault) or kills the process if no handler.)
+
+Reference: https://stackoverflow.com/questions/5684365/what-causes-page-faults
