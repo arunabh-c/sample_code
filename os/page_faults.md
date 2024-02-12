@@ -68,3 +68,13 @@ This algorithm works on the basis of the principle of locality of a reference wh
 
 . High hardware assistance is required
 
+## LIFO
+. Does not consider Locality principle, hence may produce worst performance
+
+. The old pages may reside in memory forever even if they are not used
+
+## Random Page Replacement
+## MRU
+
+Reference: https://www.scaler.com/topics/operating-system/page-replacement-algorithm/
+https://www.geeksforgeeks.org/page-replacement-algorithms-in-operating-systems/
