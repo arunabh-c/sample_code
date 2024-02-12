@@ -41,5 +41,15 @@ When investigating page fault issues, it is important to understand whether the 
 
 https://techcommunity.microsoft.com/t5/ask-the-performance-team/the-basics-of-page-faults/ba-p/373120
 
+# Page Replacement Algos
 
+## FIFO
+### Belady's Anomaly
+Generally if we increase the number of frames in the memory, the number of page faults should decrease due to obvious reasons. Belady’s anomaly refers to the phenomena where increasing the number of frames in memory, increases the page faults as well.
+
+## Optimal Page Replacement
+. Used as the benchmark for other algorithms
+. More time consuming
+. Difficult for error handling
+. Need future awareness of the programs, which is not possible every time
 
