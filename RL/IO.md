@@ -1,3 +1,5 @@
+#TURN OFF DARK MODE FOR THIS DOC
+
 The I/O Subsystem is responsible for providing the interface between Applications on the GSP and Remote Terminal (RT) devices such as Star Trackers.
 These RT devices are either on a high-speed serial bus (RS-485) or a 1553 bus. 
 
