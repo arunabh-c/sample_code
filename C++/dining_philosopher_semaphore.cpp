@@ -27,9 +27,9 @@ public:
                     function<void()> putLeftFork,
                     function<void()> putRightFork) {
         
-        lock_guard<mutex>lock(m);
-        
         fork[philosopher].wait();
+        
+        unique_lock<mutex>lock(m);
         
         pickLeftFork();
         pickRightFork();
@@ -40,5 +40,3 @@ public:
         fork[philosopher].signal();
     }
 };
-
-//Ref: https://leetcode.com/problems/the-dining-philosophers/
