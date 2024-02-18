@@ -67,3 +67,4 @@ int main()
 
 //Reference: https://www.cprogramming.com/tutorial/size_of_class_object.html
 //Reference: https://www.includehelp.com/cpp-tutorial/size-of-a-class-in-cpp-padding-alignment-in-class-size-of-derived-class.aspx
+//Reference: https://stackoverflow.com/questions/14995550/size-of-derived-class
