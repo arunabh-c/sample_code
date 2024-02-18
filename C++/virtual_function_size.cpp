@@ -64,3 +64,5 @@ int main()
     cout<<"sizeof(E): "<<sizeof(E)<<endl;//56
     return 0;
 }
+
+//Reference: https://www.cprogramming.com/tutorial/size_of_class_object.html
