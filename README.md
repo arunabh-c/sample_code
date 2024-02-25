@@ -12,5 +12,7 @@ To do:
 11. concurrency in C
 12. uC boot up procedure
 13. how does gdb debugger work: https://sourceware.org/gdb/wiki/Internals
-14. Kernel programming: https://sysprog21.github.io/lkmpg/#functions-available-to-modules , https://www.apriorit.com/dev-blog/195-simple-driver-for-linux-os
-15. Device Drivers : https://www.nxp.com/docs/en/reference-manual/Linux%20Device%20Drivers.pdf
+14. Kernel programming: https://sysprog21.github.io/lkmpg/#functions-available-to-modules , 
+15. Device Drivers : https://www.nxp.com/docs/en/reference-manual/Linux%20Device%20Drivers.pdf , https://www.apriorit.com/dev-blog/195-simple-driver-for-linux-os
+16. Spin Lock
+17. Advanced Thread Management strategies/design principles
