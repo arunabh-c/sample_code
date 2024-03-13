@@ -7,6 +7,8 @@ MODULE_LICENSE("GPL");
 MODULE_AUTHOR("Apriorit, Inc");
 
 /*===============================================================================================*/
+//driver initialization entry point and is called during system startup (if the driver is statically 
+//compiled into the kernel) or when the module is inserted into the kernel
 static int simple_driver_init(void)
 {
     int result = 0;
@@ -17,6 +19,8 @@ static int simple_driver_init(void)
 }
 
 /*===============================================================================================*/
+//unloading a module from the Linux kernel. This function has no effect if the driver is statically
+//compiled into the kernel.
 static void simple_driver_exit(void)
 {
     printk( KERN_NOTICE "Simple-driver: Exiting\n" );
