@@ -50,7 +50,7 @@ int register_device(void)
 
     printk( KERN_NOTICE "Simple-driver: register_device() is called.\n" );
 
-    result = register_chrdev( 0, device_name, &simple_driver_fops );
+    result = register_chrdev( 0, device_name, &simple_driver_fops );//0 passed to dynamically assign major dev #
     if( result < 0 )
     {
         printk( KERN_WARNING "Simple-driver:  can\'t register character device with errorcode = %i\n", result );
