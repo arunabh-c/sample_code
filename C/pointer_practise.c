@@ -206,7 +206,117 @@ getchar();
 return 0; 
 } 
 
+In the below statement, ptr1 and ptr2 are uninitialized pointers to int i.e. they are pointing to some random address that may or may not be valid address.
+int* ptr1, ptr2;//False, ptr2 is int not pointer.
 
+int main()
+{
+ int var;
+ void *ptr = &var;
+ *ptr = 5;
+ printf("var=%d and *ptr=%d",var,*ptr);     
+ return 0;//compile error cos void ptr cant just be dereferenced like that
+}
+
+# define swapl (a, b) tmp = a; a = b; b = tmp
+void swap2 ( int a, int b)
+{
+        int tmp;
+        tmp = a; a = b; b = tmp;
+ }
+void swap3 (int*a, int*b)
+{
+        int tmp;
+        tmp = *a; *a = *b; *b = tmp;
+}
+int main ()
+{
+        int num1 = 5, num2 = 4, tmp;
+        if (num1 < num2) {swap1 (num1, num2);}
+        if (num1 < num2) {swap2 (num1 + 1, num2);}
+        if (num1 >= num2) {swap3 (&num1, &num2);}
+        printf ("%d, %d", num1, num2);//4 5
+        //if (num1 > = num2) {swap3 (&num1, &num2);}" statement is true, so call by reference will be performed
+}
+
+int main()
+{
+    int array[5][5];
+    printf("%d",( (array == *array) && (*array == array[0]) ));//1
+    //Given is a 2d array array[5][5].
+    //Suppose base address of array is 2000
+    //array = 2000
+    //*array = 2000
+    //array[0] = 2000
+    //So expression is something like 2000==2000 && 2000==2000 i.e. 1&&1 will return 1.
+    return 0;
+}
+
+int main()
+{
+   int a = 300; //00000001 00101100    
+   char *b = (char *)&a;
+   *++b = 2;//00000010 00101100
+   printf("%d ",a);//556 (512 + 44)
+   return 0;
+}
+
+int main()
+{
+    int array[] = {3, 5, 1, 4, 6, 2};
+    int done = 0;
+    int i;
+
+    while (done == 0)
+    {
+        done  = 1;
+        for (i = 0; i <= 4; i++)
+        {
+            if (array[i] < array[i+1])
+            {
+                swap(&array[i], &array[i+1]);
+                done = 0;
+            }
+            //5 3 1 4 6 2
+            //5 3 4 6 2 1
+        }
+        for (i = 5; i >= 1; i--)
+        {
+            if (array[i] > array[i-1])
+            {
+                swap(&array[i], &array[i-1]);
+                done = 0;
+            }
+        }
+        //6 5 3 4 2 1
+    }
+
+    printf("%d", array[3]);//3
+}
+
+//Faster access to non-local variables is achieved using an array of pointers to activation records, called an activation tree
+
+//‘ptrdata’ is a pointer to a data type. The expression *ptrdata++ is evaluated as (in C++) : *(ptrdata++). ++ (unary operator) 
+//have high precedence than * (unary operator). So ++ will be evaluated first then * will be in action.
+
+//Activation Records are required to keep the information of subroutine calls. The languages which allow subroutine calls create 
+//an activation record whenever a subroutine call is made. Assembler maintains a location counter to assign storage addresses to 
+//each instruction of our program. Reference counter tracks for each object, counts the number of references made by it and when 
+//the count reaches zero, the object becomes inaccessible and gets destroyed. A linking loader generally performs the reallocation
+//of code
+
+//The following ‘C’ statement : int * f [ ] ( ); declares: 	Array of functions returning pointers to integers
+
+//References cannot be null, whereas pointers can; every reference refers to some object, although it may or may not be valid. 
+//A reference can never be re-assigned once it is established. So, option (A) is correct.
+
+//int (*f())[ ]; declares a function returning a pointer to an array of integers.
+
+main()
+{
+char g[] = "geeksforgeeks";
+printf("%s", g + g[6] - g[8]);//geeks
+}
 */
 
 //Reference: https://www.geeksforgeeks.org/c-language-2-gq/pointers-gq/
