@@ -47,3 +47,5 @@ int main()
     printf("Size of class A: %lu\n", sizeof(A));
     return 0;
 }
+
+//Reference: nhttps://www.includehelp.com/cpp-tutorial/size-of-a-class-in-cpp-padding-alignment-in-class-size-of-derived-class.aspx
