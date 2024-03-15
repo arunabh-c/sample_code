@@ -23,4 +23,6 @@ https://www.bogotobogo.com/cplusplus/files/CplusplusConcurrencyInAction_Practica
 
 https://www.srcmake.com/home/cpp-advanced-multithreading
 
+https://www.modernescpp.com/index.php/concurrency-patterns/
+
 18. Activation Records
