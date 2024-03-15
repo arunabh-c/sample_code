@@ -21,4 +21,6 @@ https://github.com/methylDragon/coding-notes/blob/master/C%2B%2B%2F07%20C%2B%2B%
 
 https://www.bogotobogo.com/cplusplus/files/CplusplusConcurrencyInAction_PracticalMultithreading.pdf
 
+https://www.srcmake.com/home/cpp-advanced-multithreading
+
 18. Activation Records
