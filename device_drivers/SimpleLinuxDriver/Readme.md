@@ -7,3 +7,5 @@ Steps to run:
 6. Give command `cat /dev/simple-driver` to make sure device works correctly.
 
 Reference: https://www.apriorit.com/dev-blog/195-simple-driver-for-linux-os
+
+https://www.tecmint.com/mknod-command/
