@@ -19,4 +19,6 @@ To do:
 
 https://github.com/methylDragon/coding-notes/blob/master/C%2B%2B%2F07%20C%2B%2B%20-%20Threading%20and%20Concurrency.md
 
+https://www.bogotobogo.com/cplusplus/files/CplusplusConcurrencyInAction_PracticalMultithreading.pdf
+
 18. Activation Records
