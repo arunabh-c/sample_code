@@ -59,7 +59,7 @@ int main()
 void fun(int arr[])
 {
   int i;
-  int arr_size = sizeof(arr)/sizeof(arr[0]);
+  int arr_size = sizeof(arr)/sizeof(arr[0]); //this will fail cos int arr[] is simply int *arr and sizeof(arr) could simply give size of the pointer
   for (i = 0; i < arr_size; i++)
       printf("%d ", arr[i]);//Machine Dependent
 }
@@ -71,17 +71,20 @@ int main()
   fun(arr);
   return 0;
 } 
-In C, array parameters are always treated as pointers. So following two statements have the same meaning.
-void fun(int arr[])
-void fun(int *arr)
-[] is used to make it clear that the function expects an array, it doesn’t change anything though. 
-People use it only for readability so that the reader is clear about the intended parameter type. 
-The bottom line is, sizeof should never be used for array parameters, a separate parameter for 
-array size (or length) should be passed to fun(). So, in the given program, arr_size contains
-ratio n of pointer size and integer size, this ration= is compiler dependent. 
-#include void fun(int arr[], size_t arr_size) { int i; for (i = 0; i < arr_size; i++) printf(\"%d \", arr[i]); }
-int main() { int i; int arr[] = {10, 20 ,30, 40}; // Use of sizeof is fine here 
-size_t n = sizeof(arr)/sizeof(arr[0]); fun(arr, n); return 0; } [/sourcecode] Output: 10 20 30 40
+
+void fun(int arr[], size_t arr_size) 
+{ 
+  int i; 
+  for (i = 0; i < arr_size; i++) 
+  printf(\"%d \", arr[i]); 
+}
+
+int main() 
+{ int i; 
+  int arr[] = {10, 20 ,30, 40}; // Use of sizeof is fine here 
+  size_t n = sizeof(arr)/sizeof(arr[0]); fun(arr, n); 
+  return 0; 
+ }
 
 6.
 void f(int *p, int *q) 
