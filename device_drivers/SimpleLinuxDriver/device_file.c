@@ -1,5 +1,5 @@
 #include "device_file.h"
-#include <linux/fs.h> 	    /* file stuff */
+#include <linux/fs.h> 	    /* file stuff *///also file_operations
 #include <linux/kernel.h>   /* printk() */
 #include <linux/errno.h>    /* error codes */
 #include <linux/module.h>   /* THIS_MODULE */
