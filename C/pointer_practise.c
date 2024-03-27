@@ -1,4 +1,5 @@
 /*
+1.
 #include <stdio.h>
  
 int main()
@@ -18,6 +19,7 @@ int main()
     return 0;
 }
 
+2.
 int main()
 {
     int arr[] = {10, 20, 30, 40, 50, 60};
@@ -30,6 +32,7 @@ int main()
     return 0;
 }
 
+3.
 int main() 
 { 
    int a; 
@@ -44,6 +47,7 @@ int main()
     the number a is changed to 00000001 00000010 which is representation of 513 in a little endian machine.
 }
 
+4.
 int main()
 {
  char *ptr = "GeeksQuiz";
@@ -51,6 +55,7 @@ int main()
  return 0;
 }
 
+5.
 void fun(int arr[])
 {
   int i;
@@ -78,6 +83,7 @@ ratio n of pointer size and integer size, this ration= is compiler dependent.
 int main() { int i; int arr[] = {10, 20 ,30, 40}; // Use of sizeof is fine here 
 size_t n = sizeof(arr)/sizeof(arr[0]); fun(arr, n); return 0; } [/sourcecode] Output: 10 20 30 40
 
+6.
 void f(int *p, int *q) 
 { 
   p = q; 
@@ -92,6 +98,7 @@ int main()
   return 0; 
 }
 
+7.
 Consider this C code to swap two integers and these five statements after it:
 void swap(int *px, int *py) 
 { 
@@ -128,6 +135,8 @@ void main()
    return 0;
 }
 
+
+8.
 Predict the output of following program
 #include<stdio.h>
 int main()
@@ -139,6 +148,7 @@ int main()
     return 0;
 }
 
+9.
 #define print(x) printf("%d ", x)
 int x;
 void Q(int z)
@@ -161,10 +171,12 @@ main(void)
 }
 Ans: 12 7 6
 
+10.
 //What does the following C-statement declare? [1 mark]
 int ( * f) (int * ) ;
 //A pointer to a function that takes an integer pointer as argument and returns an integer.
 
+11.
 void f(char**);
 int main()
 {
@@ -179,6 +191,7 @@ void f(char **p)
     printf("%sn", t);//gh
 }
 
+12.
 void swap(char *str1, char *str2) 
 { 
 char *temp = str1; 
@@ -206,6 +219,7 @@ getchar();
 return 0; 
 } 
 
+13.
 In the below statement, ptr1 and ptr2 are uninitialized pointers to int i.e. they are pointing to some random address that may or may not be valid address.
 int* ptr1, ptr2;//False, ptr2 is int not pointer.
 
@@ -218,6 +232,7 @@ int main()
  return 0;//compile error cos void ptr cant just be dereferenced like that
 }
 
+14.
 # define swapl (a, b) tmp = a; a = b; b = tmp
 void swap2 ( int a, int b)
 {
@@ -239,6 +254,7 @@ int main ()
         //if (num1 > = num2) {swap3 (&num1, &num2);}" statement is true, so call by reference will be performed
 }
 
+15.
 int main()
 {
     int array[5][5];
@@ -252,6 +268,7 @@ int main()
     return 0;
 }
 
+16.
 int main()
 {
    int a = 300; //00000001 00101100    
@@ -261,6 +278,7 @@ int main()
    return 0;
 }
 
+17.
 int main()
 {
     int array[] = {3, 5, 1, 4, 6, 2};
@@ -305,6 +323,7 @@ int main()
 //the count reaches zero, the object becomes inaccessible and gets destroyed. A linking loader generally performs the reallocation
 //of code
 
+18.
 //The following ‘C’ statement : int * f [ ] ( ); declares: 	Array of functions returning pointers to integers
 
 //References cannot be null, whereas pointers can; every reference refers to some object, although it may or may not be valid. 
@@ -312,6 +331,7 @@ int main()
 
 //int (*f())[ ]; declares a function returning a pointer to an array of integers.
 
+19.
 main()
 {
 char g[] = "geeksforgeeks";
