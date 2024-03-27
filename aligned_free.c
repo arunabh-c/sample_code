@@ -11,6 +11,7 @@ void* aligned_malloc(size_t size, size_t allignment)
     }*/
     //X - X mod A = INT(X / A) * A = X & ~(A - 1)
     void** p2 = (void**)(((size_t)p1 + offset) & ~(allignment-1));//makes sure starting address is multiple of allignment
+    //to understand better, remember size will be much greater than allignment
     p2[-1] = p1;//store original malloc start address to be fed to aligned_free
     
     return p2;
