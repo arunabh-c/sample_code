@@ -200,7 +200,9 @@ void swap(char *str1, char *str2)
 char *temp = str1; 
 str1 = str2; 
 str2 = temp; 
-} //this swap will fail. Ref: https://www.geeksforgeeks.org/swap-strings-in-c/
+} //this swap will fail.The function just changes local pointer variables
+// and the changes are not reflected outside the function. 
+// Ref: https://www.geeksforgeeks.org/swap-strings-in-c/
 
 //Right way to swap:
 void swap2(char *str1, char *str2) 
