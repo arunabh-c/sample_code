@@ -29,3 +29,14 @@
 15: 470-505:36 // Overview of Peripheral Buses
 
 16: 506-526:21 // Physical Layout of the kernel Source
+
+More resources:
+https://embetronicx.com/tutorials/linux/device-drivers/linux-device-driver-part-1-introduction/
+
+http://freesoftwaremagazine.com/articles/drivers_linux/
+
+https://sgp1.vultrobjects.com/books/Infrastructure/Linux%20Device%20Driver%20Development%2C%202nd%20Edition.pdf
+
+https://www.kernel.org/doc/html/next/driver-api/usb/writing_usb_driver.html
+
+https://www.kernel.org/doc/html/next/driver-api/usb/writing_usb_driver.html
