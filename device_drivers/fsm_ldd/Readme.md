@@ -9,3 +9,5 @@
 > Driver Init Message can be tallied by giving command sudo dmesg
 
 > To remove driver, give command sudo rmmod memory
+>
+> Reference: http://freesoftwaremagazine.com/articles/drivers_linux/
