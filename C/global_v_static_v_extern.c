@@ -4,6 +4,8 @@
 
 //If global variable is to be used across multiple .c files, you should not declare it static. Instead you should declare it extern in header file included by all .c files that need it.
 
+//If you do not specify a storage class (that is, the extern or static keywords), then by default global variables have external linkage. From the C99 standard:
+
 //Example:
 
 //example.h
@@ -35,5 +37,10 @@ int bar_function()
        it's another variable which happen to have the same name.
        this function cannot access local_foo defined in foo.c
     */
+
+   
     return 0;
 }
+
+//Reference: https://stackoverflow.com/questions/4239834/global-variables-in-c-are-static-or-not
+//https://stackoverflow.com/questions/1856599/when-to-use-static-keyword-before-global-variables
