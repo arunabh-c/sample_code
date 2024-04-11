@@ -11,7 +11,7 @@ public:
 
     void enqueue(int element) {
         unique_lock<mutex> lock(m);
-        cv.wait(lock, [this] { return (q.size() < cap); });
+        cv.wait(lock, [this] { return (q.size() < cap); });//return holds the true logic to unbloc
         q.emplace(element);
         cv.notify_all();
     }
