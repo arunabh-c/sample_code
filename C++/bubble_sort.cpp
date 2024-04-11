@@ -1,11 +1,11 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-void bubble_sort(vector<int> &x)
+void bubble_sort(vector<int> &x)//time complexity O(n^2) Space complexity: O(1) 
 {
-  for (size_t i = 0; i < x.size()-1; ++i){
+  for (uint i = 0; i < x.size()-1; ++i){
       bool unsorted = false;
-      for (size_t j = 0;j<x.size()-i-1; ++j){
+      for (uint j = 0;j<x.size()-i-1; ++j){
           if (x[j] > x[j+1])
           {
               swap(x[j],x[j+1]);
