@@ -54,3 +54,5 @@ for (int i = 0; i < 6; ++i) {
 }
 return 0;
 }
+//width limited work queue
+//constraint - width o the queue - how many jobs concurrently at the same time
