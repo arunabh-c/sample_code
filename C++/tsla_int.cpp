@@ -1,3 +1,5 @@
+// std::function <void ()>
+
 class Work_Queue {
 
 mutex lock;
