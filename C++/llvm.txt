@@ -1,6 +1,6 @@
 1. is a tool kit used to build and optimize compilers
 2. llvm standardizes the extremely complex process of turning source code into machine code
-2. Converts high level source code in a language agnostic code called Intermediate Representation (IR).
+3. Converts high level source code in a language agnostic code called Intermediate Representation (IR).
 
 Compiler can be broken into 3 parts: Front, Middle, Back
 Front ended parses source coded text and covnerts it into IR
@@ -11,6 +11,7 @@ Back End covnerts the IR into native machine code
 2. Next we need to define an Abstract syntax Tree to represent actual structure of the code. Have different tokens relate to each other which is accomplished by each node having its own class
 3. Parser loops over each token and builds the AST
 
-Single Assignment Register which is a variable for a compiler. IR primitives unlike assembly are independent of any machine architecture and that simplifies things for language developers who no longer need to match the language to a processor's instruction set.
+Import a bunch of llvm primitives to generate the the IR code.
+each type in the AST is given a method called codegen which always returns an llvm value object used to represent a Single Assignment Register which is a variable for a compiler that can only be assigned once. IR primitives unlike assembly are independent of any machine architecture and that simplifies things for language developers who no longer need to match the language to a processor's instruction set.
  LLVM Optimizers analyze and optimizes generated code in multiple passes to generated optimized IR also removes dead code.
 Back End is a module that takes IR as input that emits object code that can run on any architecture
