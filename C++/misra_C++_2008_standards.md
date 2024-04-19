@@ -1,19 +1,33 @@
   MISRA08_0-1-10 - Published Standards\MISRA-C++ 2008\0-1-10 All defined functions called
+  
   MISRA08_0-1-11 - Published Standards\MISRA-C++ 2008\0-1-11 A There shall be no unused parameters (named or unnamed) in non-virtual functions
+  
   MISRA08_0-1-12 - Published Standards\MISRA-C++ 2008\0-1-12 There shall be no unused parameters (named or unnamed) in the set of parameters for a virtual function and all the functions that override it
+  
   MISRA08_0-1-4 - Published Standards\MISRA-C++ 2008\0-1-4 A project shall not contain non-volatile POD variables having only one use.
+  
   MISRA08_0-1-5 - Published Standards\MISRA-C++ 2008\0-1-5 A project shall not contain unused type declarations
+  
   MISRA08_0-1-7 - Published Standards\MISRA-C++ 2008\0-1-7 The value returned by a function having a non-void return type that is not an overloaded operator shall always be used
+  
   MISRA08_0-1-8 - Published Standards\MISRA-C++ 2008\0-1-8 All functions with void return type shall have external side effect(s)
+  
   MISRA08_0-3-1 - Published Standards\MISRA-C++ 2008\0-3-1 Minimization of run-time failures shall be ensured by the use of static analysis tools
+  
   MISRA08_10-1-1 - Published Standards\MISRA-C++ 2008\10-1-1 Classes should not be derived from virtual bases
+  
   MISRA08_10-1-2 - Published Standards\MISRA-C++ 2008\10-1-2 A base class shall only be declared virtual if it is used in a diamond hierarchy
-  MISRA08_10-1-3 - Published Standards\MISRA-C++ 2008\10-1-3 An accessible base class shall not be
-both virtual and non-virtual in the same hierarchy
+  
+  MISRA08_10-1-3 - Published Standards\MISRA-C++ 2008\10-1-3 An accessible base class shall not be both virtual and non-virtual in the same hierarchy
+  
   MISRA08_10-3-1 - Published Standards\MISRA-C++ 2008\10-3-1 There shall be no more than one definition of each virtual function on each path through the inheritance hierarchy
+
   MISRA08_10-3-2 - Published Standards\MISRA-C++ 2008\10-3-2 Each overriding virtual function shall be declared with the virtual keyword.
+  
   MISRA08_10-3-3 - Published Standards\MISRA-C++ 2008\10-3-3 A virtual function shall only be overridden by a pure virtual function if it is itself declared as pure virtual
+  
   MISRA08_11-0-1 - Published Standards\MISRA-C++ 2008\11-0-1 Member data in non-POD class types shall be private
+  
   MISRA08_12-1-1 - Published Standards\MISRA-C++ 2008\12-1-1 An object's dynamic type shall not be used from the body of its constructor or destructor
   MISRA08_12-1-2 - Published Standards\MISRA-C++ 2008\12-1-2 All constructors of a class should explicitly call a constructor for all of its immediate base classes and all virtual base classes
   MISRA08_12-1-3 - Published Standards\MISRA-C++ 2008\12-1-3 All constructors that are callable with a single argument of fundamental type shall be declared explicit.
