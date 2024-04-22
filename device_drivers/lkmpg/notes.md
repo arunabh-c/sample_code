@@ -174,3 +174,19 @@ int alloc_chrdev_region(dev_t *dev, unsigned baseminor, unsigned count, const ch
 void cdev_init(struct cdev *cdev, const struct file_operations *fops);//common usage pattern
 int cdev_add(struct cdev *p, dev_t dev, unsigned count);
 ```
+> **Unregistering dd**:
+rmmod of dd by kernel module is dangerous. There is a counter which keeps track of # of
+processes using a certain module: `cat /proc/modules or sudo lsmod` and looking at 3rd field.
+this amount is checked by `sys_delete_module` within `cleanup_module`. amount value can be incremented/decremented
+and if value wrong then reboot.
+
+> dump device file via `cat /proc/devices`
+
+> concurrent access to the same memory may lead to the race condition, and will not preserve
+the performance. In the kernel module, this problem may happen due
+to multiple instances accessing the shared resources. Therefore, a solution is
+to enforce the exclusive access. We use atomic **Compare-And-Swap (CAS)** to
+maintain the states, **CDEV_NOT_USED** and **CDEV_EXCLUSIVE_OPEN**, to determine
+whether the file is currently opened by someone or not. CAS compares the
+contents of a memory location with the expected value and, only if they are the
+same, modifies the contents of that memory location to the desired value
