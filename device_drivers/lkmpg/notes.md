@@ -270,4 +270,62 @@ static void my_seq_stop(struct seq_file *s, void *v)
 static int my_seq_show(struct seq_file *s, void *v)
 ```
 
-> 
+> sysfs allows you to interact with the running kernel from userspace by reading or
+setting variables inside of modules. This can be useful for debugging purposes,
+or just as an interface for applications or scripts. You can find sysfs directories
+and files under the /sys directory on your system.
+`ls -l /sys`. Attributes can be exported for kobjects in the form of regular files in the
+filesystem. Sysfs forwards file I/O operations to methods defined for the attributes,
+providing a means to read and write kernel attributes.
+```
+static ssize_t myvariable_show(struct kobject *kobj,
+                               struct kobj_attribute *attr, char *buf)
+static ssize_t myvariable_store(struct kobject *kobj,
+                                struct kobj_attribute *attr, char *buf,
+                                size_t count)
+static struct kobj_attribute myvariable_attribute =
+    __ATTR(myvariable, 0660, myvariable_show, (void *)myvariable_store);
+```
+What is the current value of myvariable ?
+`cat /sys/kernel/mymodule/myvariable`
+
+Set the value of myvariable and check that it changed.
+`echo "32" > /sys/kernel/mymodule/myvariable`
+
+> **ioctl (short for Input Output ConTroL)** Every device can have
+its own ioctl commands, which can be read ioctl’s (to send
+information from a process to the kernel), write ioctl’s (to return
+information to a process), both or neither. Notice here the roles of 
+read and write are reversed again, so in ioctl’s read is to send information to
+the kernel and write is to receive information from the kernel.
+The ioctl function is called with **three parameters**: **the file descriptor** of the
+appropriate device file, **the ioctl number**, and a **parameter, which is of type long**
+so you can use a cast to use it to pass anything.
+
+>
+```
+static long test_ioctl_ioctl(struct file *filp, unsigned int cmd,
+38 unsigned long arg)
+
+static ssize_t test_ioctl_read(struct file *filp, char __user *buf,
+89 size_t count, loff_t *f_pos)
+
+static int test_ioctl_close(struct inode *inode, struct file *filp)
+
+static int test_ioctl_open(struct inode *inode, struct file *filp)
+
+static struct file_operations fops = {
+    .open = test_ioctl_open,
+    .release = test_ioctl_close,
+    .read = test_ioctl_read,
+    .unlocked_ioctl = test_ioctl_ioctl,
+};
+
+```
+
+> The ioctl number encodes the major device number,
+the type of the ioctl, the command, and the type of the parameter. This ioctl
+number is usually created by a macro call (_IO, _IOR, _IOW or _IOWR — depending
+on the type) in a header file. This header file should then be included both by
+the programs which will use ioctl (so they can generate the appropriate ioctl’s)
+and by the kernel module (so it can understand it)
