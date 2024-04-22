@@ -16,14 +16,14 @@ private:
 
 class Derived2 : public Base {
 private:
-    char d;//1->3//8
+    char d;//1->3//8//char b packed with char d, so only 2 bits of padding added
     int c;//4//12
 };//12 bytes
 
 class Derived3 : virtual public Base {//8//16
 
 private:
-    char d;//1->4//20
+    char d;//1->4//20//for virtual class, char b & c not packed
     int c;//4//24
 };
 
@@ -48,4 +48,4 @@ int main()
     return 0;
 }
 
-//Reference: nhttps://www.includehelp.com/cpp-tutorial/size-of-a-class-in-cpp-padding-alignment-in-class-size-of-derived-class.aspx
+//Reference: https://www.includehelp.com/cpp-tutorial/size-of-a-class-in-cpp-padding-alignment-in-class-size-of-derived-class.aspx
