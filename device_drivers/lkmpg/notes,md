@@ -1,0 +1,3 @@
+A Linux kernel module is precisely defined as a code segment capable of
+dynamic loading and unloading within the kernel as needed. These modules
+enhance kernel capabilities without necessitating a system reboot.
