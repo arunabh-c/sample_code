@@ -63,6 +63,36 @@ variables rather than functions. e.g. `static int hello3_data __initdata = 3;`
 will take the values of the command line arguments as global and then use the
 **module_param() macro** e.g.
 
+```
 static int myint = 420;
-module_param(myint, int, S_IRUSR | S_IWUSR | S_IRGRP | S_IROTH);
+module_param(myint, int, S_IRUSR | S_IWUSR | S_IRGRP | S_IROTH);//permissions bits
+//for the corresponding file in sysfs
 MODULE_PARM_DESC(myint, "An integer");
+
+static int myintarray[2] = { 420, 420 };
+static int arr_argc = 0;
+module_param_array(myintarray, int, &arr_argc, 0000);
+//arr_argc is pointer to the variable that will store the number of elements of the array
+//initialized by the user at module loading time
+MODULE_PARM_DESC(myintarray, "An array of integers");
+```
+
+to load the module, give command `sudo insmod hello-5.ko myint=5 myintarray=-1,-1`
+
+good use for this is to have the module variable’s default values set, like
+a port or IO address
+
+> For modules spanning multiple files, put the following line in makefile:
+
+`startstop-objs := start.o stop.o`
+
+> **forced module unloading**
+(MODULE_FORCE_UNLOAD): when this option is enabled, you can force the kernel
+to unload a module even when it believes it is unsafe, via a sudo rmmod -f module
+command
+
+> version magic strings are stored in the module object in
+the form of a static string, starting with `vermagic: 5.4.0-70-generic SMP mod_unload modversions`
+that can be observed by the command `modinfo module.ko`
+
+to get list of all symbols exported by your kernel do `cat /proc/kallsyms`
