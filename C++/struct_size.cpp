@@ -14,6 +14,13 @@ struct B {
     char* d;//8//24
 };
 
+struct C {
+    int* b;//8//8
+    char* d;//8//16
+    int a;//4//20
+    char c;//1->4//24
+};
+
 int main()
 {
     /*struct A aa;
@@ -29,10 +36,15 @@ int main()
     printf("Size of struct B: %lu\n", sizeof(struct B));
     printf("Size of object b: %lu\n", sizeof(bb));
 
-    printf("address of A.a: %p\n",&bb.b);
-    printf("address of A.b: %p\n",&bb.c);
-    printf("address of A.c: %p\n",&bb.a);
-    printf("address of A.d: %p\n",&bb.d);
+    printf("address of BB.b: %p\n",&bb.b);
+    printf("address of BB.c: %p\n",&bb.c);
+    printf("address of BB.a: %p\n",&bb.a);
+    printf("address of BB.d: %p\n",&bb.d);
+
+    struct C cc;
+    printf("Size of struct C: %lu\n", sizeof(struct C));
+    printf("Size of object cc: %lu\n", sizeof(cc));
+
     return 0;
 
 }
