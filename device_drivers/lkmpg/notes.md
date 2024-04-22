@@ -95,4 +95,82 @@ command
 the form of a static string, starting with `vermagic: 5.4.0-70-generic SMP mod_unload modversions`
 that can be observed by the command `modinfo module.ko`
 
-to get list of all symbols exported by your kernel do `cat /proc/kallsyms`
+> to get list of all symbols exported by your kernel do `cat /proc/kallsyms`
+
+> strace is a handy program that gives you details about what system calls a program
+is making, including which call is made, what its arguments are and what it
+returns.
+
+> CPUs operate in different modes, each offering varying levels
+of system control. The Intel 80386 architecture, for example, featured four such
+modes, known as rings. Unix, however, utilizes only two of these rings: the
+highest ring (ring 0, also known as “supervisor mode”, where all actions are
+permissible) and the lowest ring, referred to as “user mode”.
+
+> declare all your variables as static and to use a well-defined prefix for your
+symbols to prevent variable names of different modules from crashing and also prevent namespace pollution
+
+> Device Drivers
+```
+$ ls -l /dev/hda[1-3]
+brw-rw---- 1 root disk 3, 1 Jul 5 2000 /dev/hda1 //3 is major number
+brw-rw---- 1 root disk 3, 2 Jul 5 2000 /dev/hda2 //2 is minor number
+brw-rw---- 1 root disk 3, 3 Jul 5 2000 /dev/hda3 //first letter b means block device
+```
+> Difference between Block & Char devices:
+1. block devices have a buffer for requests, so they can choose
+the best order in which to respond to the requests. This is important in the
+case of storage devices, where it is faster to read or write sectors which are close
+to each other, rather than those which are further apart.
+2. block devices can only accept input and return output in blocks (whose size
+can vary according to the device), whereas character devices are allowed to use
+as many or as few bytes as they like
+
+> To create a new char device named coffee with major/minor
+number 12 and 2, simply do `mknod /dev/coffee c 12 2`//device files, located
+in /dev.
+
+> file_operations structure is defined in include/linux/fs.h, and holds
+pointers to functions defined by the driver that perform various operations on
+the device. Each field of the structure corresponds to the address of some function
+defined by the driver to handle a requested operation. Syntax:
+```
+struct file_operations fops = {
+ .read = device_read,
+ .write = device_write,
+ .open = device_open,
+ .release = device_release//any member of the
+ //structure which you do not explicitly assign will be initialized to NULL by gcc
+};
+```
+
+> the read, write and seek operations are guaranteed for
+thread-safe by using the f_pos specific lock, which makes the file position update
+to become the mutual exclusion
+
+> since Linux v5.6, the proc_ops structure was introduced to replace
+the use of the file_operations structure when registering proc handlers.
+
+> **File Structure of device drivers**: Each device is represented in the kernel by a file structure.
+a file is a kernel level structure and never
+appears in a user space program. It is not the same thing as a FILE, which is
+defined by glibc and would never appear in a kernel space function. Also, its
+name is a bit misleading; it represents an abstract open ‘file’, not a file on a
+disk, which is represented by a structure named inode. An instance of struct file is
+commonly named filp. You’ll also see it referred to as a struct file object
+
+> **Registering char dd**:
+```
+int register_chrdev(unsigned int major, const char *name,
+struct file_operations *fops);
+```
+
+> Better way to register to redue waste for char device registration is using cdev interface.
+```
+int register_chrdev_region(dev_t from, unsigned count, const char *name);\\if major num known
+int alloc_chrdev_region(dev_t *dev, unsigned baseminor, unsigned count, const char *name);\\dynamically alloc major
+//struct cdev *my_dev = cdev_alloc();//initialize the data structure struct cdev for our char device and associate 
+//my_cdev->ops = &my_fops;//it with the device numbers
+void cdev_init(struct cdev *cdev, const struct file_operations *fops);//common usage pattern
+int cdev_add(struct cdev *p, dev_t dev, unsigned count);
+```
