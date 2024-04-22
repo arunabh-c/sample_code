@@ -9,19 +9,30 @@ struct A {
 
 struct B {
     int* b;//8//8
-    char c;//1//9
-    int a;//4->7//16
+    char c;//1->4//12
+    int a;//4//16
     char* d;//8//24
 };
 
 int main()
 {
-    struct A a;
+    /*struct A aa;
     printf("Size of struct A: %lu\n", sizeof(struct A));
-    printf("Size of object a: %lu\n", sizeof(a));
+    printf("Size of object a: %lu\n", sizeof(aa));
     
-    struct B b;
+    printf("address of A.a: %p\n",&aa.a);
+    printf("address of A.b: %p\n",&aa.b);
+    printf("address of A.c: %p\n",&aa.c);
+    printf("address of A.d: %p\n",&aa.d);*/
+    
+    struct B bb;
     printf("Size of struct B: %lu\n", sizeof(struct B));
-    printf("Size of object b: %lu\n", sizeof(b));
+    printf("Size of object b: %lu\n", sizeof(bb));
+
+    printf("address of A.a: %p\n",&bb.b);
+    printf("address of A.b: %p\n",&bb.c);
+    printf("address of A.c: %p\n",&bb.a);
+    printf("address of A.d: %p\n",&bb.d);
     return 0;
+
 }
