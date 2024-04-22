@@ -190,3 +190,84 @@ maintain the states, **CDEV_NOT_USED** and **CDEV_EXCLUSIVE_OPEN**, to determine
 whether the file is currently opened by someone or not. CAS compares the
 contents of a memory location with the expected value and, only if they are the
 same, modifies the contents of that memory location to the desired value
+
+> to have kernel run across various kernel versions do the following:
+```
+#if LINUX_VERSION_CODE >= KERNEL_VERSION(6, 4, 0)
+   cls = class_create(DEVICE_NAME);
+#else
+   cls = class_create(THIS_MODULE, DEVICE_NAME);
+#endif
+```
+>  **/proc file system**
+used by every bit of the kernel which has something interesting to report, such
+as /proc/modules which provides the list of modules and /proc/meminfo which
+gathers memory usage statistics. To use it, a structure is created with all
+the information needed for the /proc file, including pointers to any handler
+functions (in our case there is only one, the one called when somebody attempts
+to read from the /proc file). Then, init_module registers the structure with
+the kernel and cleanup_module unregisters it.
+
+> the index-node (inode for short) number is a pointer to a disk location where
+the /proc file’s inode is located. The inode contains information about the file, 
+for example the file’s permissions, together with a pointer to the disk location 
+or locations where the file’s data can be found.
+
+> /proc/helloworld is created when the module is loaded with the function
+`our_proc_file = proc_create(procfs_name, 0644, NULL, &proc_file_fops);`.
+The return value is a pointer to struct proc_dir_entry, and it will be
+used to configure the file /proc/helloworld.
+
+> `static ssize_t procfile_read(struct file *file_pointer, char __user *buffer,
+20 size_t buffer_length, loff_t *offset)` The content of the buffer will
+be returned to the application which read it (for example the cat command).
+The offset is the current position in the file. If the return value of the function
+is not null, then this function is called again
+
+> In Linux, there is a standard mechanism for file system registration. Since
+every file system has to have its own functions to **handle inode and file operations**,
+there is a special structure to hold pointers to all those functions,
+**struct inode_operations**, which includes **a pointer to struct proc_ops**.
+The difference between file and inode operations is that **file operations deal
+with the file itself whereas inode operations deal with ways of referencing the
+file, such as creating links to it**.
+
+> 
+```
+#ifdef HAVE_PROC_OPS
+static struct proc_ops file_ops_4_our_proc_file = {
+    .proc_read = procfs_read,
+    .proc_write = procfs_write,
+    .proc_open = procfs_open,
+    .proc_release = procfs_close,
+};
+```
+> Read functions are used for output, whereas write functions are
+used for input. The reason for that is that read and write refer to the user’s
+point of view — if a process reads something from the kernel, then the kernel
+needs to output it, and if a process writes something to the kernel, then the
+kernel receives it as input.
+```
+static ssize_t procfs_read(struct file *filp, char __user *buffer,
+                           size_t length, loff_t *offset)
+static ssize_t procfs_write(struct file *file, const char __user *buffer,
+                            size_t len, loff_t *off)
+```
+> there is an API named **seq_file** that helps formatting a
+/proc file for output. It is based on sequence, which is composed of 3 functions:
+**start(), next(), and stop()**. The seq_file API starts a sequence when a
+user read the /proc file.
+```
+static struct seq_operations my_seq_ops = {
+    .start = my_seq_start,
+    .next = my_seq_next,
+    .stop = my_seq_stop,
+    .show = my_seq_show,
+};
+static void *my_seq_start(struct seq_file *s, loff_t *pos)
+static void *my_seq_next(struct seq_file *s, void *v, loff_t *pos)
+static void my_seq_stop(struct seq_file *s, void *v)
+static int my_seq_show(struct seq_file *s, void *v)
+```
+
+> 
