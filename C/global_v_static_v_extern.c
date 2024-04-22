@@ -2,9 +2,11 @@
 
 //If global variable is to be visible within only one .c file, you should declare it static.
 
-//If global variable is to be used across multiple .c files, you should not declare it static. Instead you should declare it extern in header file included by all .c files that need it.
+//If global variable is to be used across multiple .c files, you should not declare it static. 
+//Instead you should declare it extern in header file included by all .c files that need it.
 
-//If you do not specify a storage class (that is, the extern or static keywords), then by default global variables have external linkage. From the C99 standard:
+//If you do not specify a storage class (that is, the extern or static keywords), 
+//then by default global variables have external linkage. From the C99 standard:
 
 //Example:
 
