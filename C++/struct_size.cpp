@@ -19,7 +19,7 @@ struct C {
     char* d;//8//16
     int a;//4//20
     char c;//1->4//24
-};
+};//match alignment of largest member
 
 int main()
 {
@@ -30,7 +30,7 @@ int main()
     printf("address of A.a: %p\n",&aa.a);
     printf("address of A.b: %p\n",&aa.b);
     printf("address of A.c: %p\n",&aa.c);
-    printf("address of A.d: %p\n",&aa.d);*/
+    printf("address of A.d: %p\n",&aa.d);
     
     struct B bb;
     printf("Size of struct B: %lu\n", sizeof(struct B));
@@ -39,12 +39,20 @@ int main()
     printf("address of BB.b: %p\n",&bb.b);
     printf("address of BB.c: %p\n",&bb.c);
     printf("address of BB.a: %p\n",&bb.a);
-    printf("address of BB.d: %p\n",&bb.d);
+    printf("address of BB.d: %p\n",&bb.d);*/
 
     struct C cc;
     printf("Size of struct C: %lu\n", sizeof(struct C));
     printf("Size of object cc: %lu\n", sizeof(cc));
+    
+    printf("address of CC.b: %p\n",&cc.b);
+    printf("address of CC.d: %p\n",&cc.d);
+    printf("address of CC.a: %p\n",&cc.a);
+    printf("address of CC.c: %p\n",&cc.c);
+
 
     return 0;
 
 }
+
+Reference: https://www.includehelp.com/c/size-of-struct-in-c-padding-alignment-in-struct.aspx
