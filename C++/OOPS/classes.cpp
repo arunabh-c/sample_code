@@ -8,7 +8,7 @@ class Base
     int a = 0;
 };
 
-class Derived : private Base //makes public members of Base private in the derived class
+class Derived : private Base //makes public & protected members of Base private in the derived class
 
 {
     public:
