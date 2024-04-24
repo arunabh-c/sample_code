@@ -20,10 +20,12 @@ int main()
     p2->printA()*/
 
   // now address stored in p1 shpould get copied to p2 
-    unique_ptr<A> p2 = move(p1); 
+    unique_ptr<A> p2 = move(p1);//move semantics
   
     p2->printA(); 
     cout << p1.get() << endl; 
     cout << p2.get() << endl; 
     return 0; 
 }
+
+//reference: https://www.geeksforgeeks.org/unique_ptr-in-cpp/
