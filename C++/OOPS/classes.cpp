@@ -6,11 +6,23 @@ class Base
 {
     public:
     int a = 0;
+protected:
+    int y;
+ 
+private:
+    int z;
 };
 
-class Derived : private Base //makes public & protected members of Base private in the derived class
+class Base1 {
 
-{
+public:
+int b1 = 0;
+
+};
+
+class Derived : private Base, private Base1 //makes public & protected members of Base private in the derived class
+
+{// int z in Base class not accessible; int y is protected
     public:
 int b = 4;
 void print_op();
