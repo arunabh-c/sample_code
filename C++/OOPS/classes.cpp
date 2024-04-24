@@ -1,38 +1,36 @@
 #include <iostream>
+
 using namespace std;
- 
-// Declare Base Class
-class Base {
-public:
-    int a;
+
+class Base 
+{
+    public:
+    int a = 0;
 };
- 
-// Declare Derived Class
-class Derived : public Base {
-public:
-    int b;
+
+class Derived : private Base //makes public members of Base private in the derived class
+
+{
+    public:
+int b = 4;
+void print_op();
 };
- 
-// Driver Code
+
+void Derived::print_op()//defining function outside class
+{
+    cout<<Derived::a<<endl;
+}
+
 int main()
 {
-    // Initialise a Derived class geeks
-    Derived geeks;
- 
-    // Assign value to Derived class variable
-    geeks.b = 3;
- 
-    // Assign value to Base class variable
-    // via derived class
-    geeks.a = 4;
- 
-    cout << "Value from derived class: "
-         << geeks.b << endl;
- 
-    cout << "Value from base class: "
-         << geeks.a << endl;
- 
+  Derived geeks;
+
+  cout<<geeks.b<<endl;
+  
+  geeks.print_op();
+
     return 0;
 }
+
 
 Reference: https://www.geeksforgeeks.org/difference-between-base-class-and-derived-class-in-c/
