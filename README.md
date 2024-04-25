@@ -5,6 +5,7 @@ Some critical facts:
 
 1. **Little endian** is basically reversing the byte order for a multi byte value. 1111 1111 1111 0100 is a 2 byte value where 1111 1111 is the first byte and 1111 0100 is the second byte. In little endian, the second byte (or least significant byte) is read in first so the final representation is 1111 0100 1111 1111. **Little endian means the lower significant bytes get the lower addresses**
 2. The class member declared as **Protected** are inaccessible outside the class but they can be accessed by any subclass(derived class) of that class.
+3. Compile Time polymorphism is achieved via function or operator overloading.
 
 To do:
 
