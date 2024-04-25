@@ -33,4 +33,9 @@ int main()  {
     TA ta1(30);
 }
 
+/*Person::Person(int ) called <--- Highest level constructor called first
+Faculty::Faculty(int ) called <--- followed by lower level constructor and finally the calling constructor
+Student::Student(int ) called <--- for multiple parents, constructor called in order of base classes listed in line 25
+TA::TA(int ) called*/
+
 //Ref: https://www.geeksforgeeks.org/multiple-inheritance-in-c/
