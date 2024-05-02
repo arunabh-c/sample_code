@@ -114,3 +114,5 @@ https://www.modernescpp.com/index.php/concurrency-patterns/
 
 19. more RAII + smart pointers:
 https://web.stanford.edu/class/archive/cs/cs106l/cs106l.1204/lectures/raii/raii.pdf
+
+20. Finish implementing multi-threaded test bounded enqueue dequeue, map of string vs function pointer, implement basic calculator.
