@@ -111,3 +111,6 @@ https://www.srcmake.com/home/cpp-advanced-multithreading
 https://www.modernescpp.com/index.php/concurrency-patterns/
 
 18. Activation Records
+
+19. more RAII + smart pointers:
+https://web.stanford.edu/class/archive/cs/cs106l/cs106l.1204/lectures/raii/raii.pdf
