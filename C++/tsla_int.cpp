@@ -99,6 +99,8 @@ int main() {
     for (int i = 0; i < 15; ++i) {
         cout << q.get_ans(i + 5) << endl;
     }
+    
+    cout<<"Done!"<<endl;
     return 0;
 }
 //width limited work queue
