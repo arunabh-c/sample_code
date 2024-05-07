@@ -72,10 +72,10 @@ public:
 
             new_thread(lt);
             
-            cout << "thrd # " << lt << " started" << endl;
+            cout << "thrd # " << lt << " started"<<" for task # "<<ip << endl;
             ip++;
             sleep((rand())%4);
-            cout << "thrd # " << lt << " ended" << endl;
+            cout << "thrd # " << lt << " ended"<<" for task # "<<ip << endl;
             
             
             end_thread();
