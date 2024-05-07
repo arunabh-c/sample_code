@@ -44,18 +44,22 @@ class Work_Queue {
         cv.notify_all();
     }
 
+    void thread_logic(int& ip, int& id, int& lt) {
+        cout << "thrd # " << lt << " started"
+             << " for task # " << ip << endl;
+        ip++;
+        sleep((rand()) % 4);
+        cout << "thrd # " << lt << " ended"
+             << " for task # " << ip << endl;
+        set_ans(ip, id);
+        end_thread();
+    }
+
     void churn() {
         int lt, ip, id;
         dequeue(ip, id);
         new_thread(lt);
-        // cout << "thrd # " << lt << " started"
-        //      << " for task # " << ip << endl;
-        ip++;
-        sleep((rand()) % 4);
-        // cout << "thrd # " << lt << " ended"
-        //      << " for task # " << ip << endl;
-        set_ans(ip, id);
-        end_thread();
+        thread_logic(ip, id, lt);
     }
 
 public:
