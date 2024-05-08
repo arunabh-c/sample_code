@@ -2,7 +2,7 @@
 dynamic loading and unloading within the kernel as needed. These modules
 enhance kernel capabilities without necessitating a system reboot.
 
-> To check for modules in kernel use `sudo lsmod` . to search for 'fat' use `sudo lsmod | greap fat`
+> To check for modules in kernel use `sudo lsmod` . to search for 'fat' use `sudo lsmod | grep fat`
 
 > Modules stored within **file /proc/modules** (`sudo cat /proc/modules`)
 
