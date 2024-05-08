@@ -4,7 +4,7 @@ enhance kernel capabilities without necessitating a system reboot.
 
 > To check for modules in kernel use `sudo lsmod` . to search for 'fat' use `sudo lsmod | greap fat`
 
-> Modules stored withing **file /proc/modules** (`sudo cat /proc/modules`)
+> Modules stored within **file /proc/modules** (`sudo cat /proc/modules`)
 
 > **MODVERSIONING**: A module compiled for one kernel will not load if a different
 kernel is booted, unless CONFIG_MODVERSIONS is enabled in the kernel.
