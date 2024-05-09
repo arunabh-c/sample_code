@@ -4,25 +4,25 @@
 using namespace std;
 
 class Work_Queue {
-    mutex lock, mlock;          //, qlock;
-    condition_variable cv, cvm; //, cvq;
+    mutex lock, mlock;//, qlock;
+    condition_variable cv, cvm;//, cvq;
     int thrd_ctr, max_thrd;
     queue<pair<int, int>> wq;
     map<int, int> am;
 
     void enqueue(int ip, int id) {
-        // unique_lock<mutex> ul(qlock);
+        //unique_lock<mutex> ul(qlock);
         wq.push({ip, id});
-        // cvq.notify_all();
+        //cvq.notify_all();
     }
 
     void dequeue(int& ip, int& id) {
-        // unique_lock<mutex> ul(qlock);
-        // cvq.wait(ul, [this]() {return !wq.empty();});
+        //unique_lock<mutex> ul(qlock);
+        //cvq.wait(ul, [this]() {return !wq.empty();});
         ip = wq.front().first;
         id = wq.front().second;
         wq.pop();
-        // cvq.notify_all();
+        //cvq.notify_all();
     }
 
     void set_ans(int ip, int id) {
@@ -44,7 +44,7 @@ class Work_Queue {
         cv.notify_all();
     }
 
-    void thread_logic(int& ip, int& id, int& lt) {
+    void thread_logic(int ip, int id, int lt) {
         cout << "thrd # " << lt << " started"
              << " for task # " << ip << endl;
         ip++;
@@ -58,8 +58,9 @@ class Work_Queue {
     void churn() {
         int lt, ip, id;
         dequeue(ip, id);
-        new_thread(lt);
-        thread_logic(ip, id, lt);
+        new_thread(lt);//waits to get available thead only then calls new thread
+        thread thrdobj([=]() { thread_logic(ip, id, lt); });//pay attention to pass by value;pass by ref can cause data corruption as function goes out of scope
+        thrdobj.detach();
     }
 
 public:
@@ -68,7 +69,6 @@ public:
     int get_ans(const int id) {
         int ans;
         unique_lock<mutex> ul(mlock);
-        // cout<<"waiting here for id: "<<id<<endl;
         cvm.wait(ul, [this, &id]() { return (am.find(id) != am.end()); });
         ans = am[id];
         cvm.notify_all();
@@ -76,9 +76,8 @@ public:
     }
 
     void do_work(int ip, int id) {
-        enqueue(ip, id);
-        thread thrdobj([&]() { churn(); });
-        thrdobj.detach();
+        enqueue(ip, id);//enques the data for future processing
+        churn();//calls churn to work the data
     }
 };
 
