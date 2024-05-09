@@ -1,6 +1,10 @@
-/*The POSIX thread libraries are a C/C++ thread API based on standards. It enables the creation of a new concurrent process flow. It works well on multi-processor or multi-core systems, where the process flow may be scheduled to execute on another processor, increasing speed through parallel or distributed processing. 
+/*The POSIX thread libraries are a C/C++ thread API based on standards. It enables the creation of a new concurrent process flow. 
+It works well on multi-processor or multi-core systems, where the process flow may be scheduled to execute on another processor, 
+increasing speed through parallel or distributed processing. 
 
-PThreads is a highly concrete multithreading system that is the UNIX system’s default standard. PThreads is an abbreviation for POSIX threads, and POSIX is an abbreviation for Portable Operating System Interface, which is a type of interface that the operating system must implement. PThreads in POSIX outline the threading APIs that the operating system must provide.
+PThreads is a highly concrete multithreading system that is the UNIX system’s default standard. PThreads is an abbreviation for 
+POSIX threads, and POSIX is an abbreviation for Portable Operating System Interface, which is a type of interface that the 
+operating system must implement. PThreads in POSIX outline the threading APIs that the operating system must provide.
 */
 
 #include <stdio.h>
