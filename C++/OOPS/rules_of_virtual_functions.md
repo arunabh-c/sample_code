@@ -13,7 +13,49 @@ The rules for the virtual functions in C++ are as follows:
 
 6. A class may have a virtual destructor but it cannot have a virtual constructor.
 
-7. A pvt virtual function in derived class can be still called by base class pointer pointing to derived object. (base class is public parent of derived class) A virtual function can be private as C++ has access control, but not visibility control. As mentioned virtual functions can be overridden by the derived class but under all circumstances will only be called within the base class. Ref: https://www.geeksforgeeks.org/can-virtual-functions-be-private-in-c/#
+7. Compile time (early binding) VS runtime (late binding) behavior of Virtual Functions
+
+```
+// C++ program to illustrate
+// concept of Virtual Functions
+
+#include <iostream>
+using namespace std;
+
+class base {
+public:
+	virtual void print() { cout << "print base class\n"; }
+
+	void show() { cout << "show base class\n"; }
+};
+
+class derived : public base {
+public:
+	void print() { cout << "print derived class\n"; }
+
+	void show() { cout << "show derived class\n"; }
+};
+
+int main()
+{
+	base* bptr;
+	derived d;
+	bptr = &d;
+
+	// Virtual function, binded at runtime
+	bptr->print();
+
+	// Non-virtual function, binded at compile time
+	bptr->show();
+
+	return 0;
+}
+
+print derived class
+show base class
+```
+
+8. A pvt virtual function in derived class can be still called by base class pointer pointing to derived object. (base class is public parent of derived class) A virtual function can be private as C++ has access control, but not visibility control. As mentioned virtual functions can be overridden by the derived class but under all circumstances will only be called within the base class. Ref: https://www.geeksforgeeks.org/can-virtual-functions-be-private-in-c/#
 
 ```
 // C++ program to demonstrate how a
