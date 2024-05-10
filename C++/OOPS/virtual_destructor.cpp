@@ -24,7 +24,6 @@ int main()
   derived *d = new derived();  
   base *b = d;
   delete b;
-  getchar();
   return 0;
 }
 
