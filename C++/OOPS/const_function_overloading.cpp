@@ -12,11 +12,9 @@ void fun(int i) // PROGRAM 1 (Fails in compilation)
 } 
 
 /*the parameter ‘i’ is passed by value, so ‘i’ in fun() is a copy of ‘i’ in main(). 
-Hence fun() cannot modify ‘i’ of main(). Therefore, it doesn’t matter whether ‘i’ 
-is received as a const parameter or a normal parameter. When we pass by reference 
-or pointer, we can modify the value referred or pointed, so we can have two 
-versions of a function, one which can modify the referred or pointed value,
-other which can not.*/
+Hence fun() cannot modify the 'i' in main() either ways. hence they appear as same 
+and hence colliding functions const and non const parameter overloading only possible
+if passing by reference*/
 
 void fun(char *a) 
 { 
