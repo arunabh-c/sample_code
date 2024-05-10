@@ -149,6 +149,33 @@ int main()
 // should use const in C++ wherever possible so that objects are not accidentally modified. This is one 
 // good reason for passing reference as const.
 
+class Test
+{
+/* Class data members */
+public:
+Test(Test &t) { /* Copy data members from t*/}
+Test()     { /* Initialize data members */ }
+};
+ 
+Test fun()
+{
+    cout << "fun() Called\n";
+    Test t;
+    return t;
+}
+ 
+int main()
+{
+    Test t1;
+    Test t2 = fun();
+    return 0;
+}
+
+//if we dont make copy constructor argument constant then in line 170, compiler creates a temporary object which
+//is copied to t2. The reason for compiler error is that compiler-created temporary objects cannot be bound to 
+// non-const references and the original program tries to do that.
+
+
 // Copy Constructor
 Geeks Obj1(Obj);
 or
