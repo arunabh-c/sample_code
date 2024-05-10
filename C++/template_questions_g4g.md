@@ -8,6 +8,7 @@
 
 -----------********************-----------------------
 
+```
 #include <iostream>
 using namespace std;
 
@@ -34,9 +35,11 @@ int main()
 So compiler creates two functions in the above example, one for int and other 
 for double. Every instance has its own copy of static variable. The int instance 
 of function is called twice, so count is incremented for the second call.*/
+```
 
 -----------********************-----------------------
 
+```
 #include <iostream>
 using namespace std;
 
@@ -55,8 +58,11 @@ int main()
 /*The first and second call to max function is a valid call as both the arguments passed are of same 
 ata type (i.e int and float respectively). But the third call to max function has arguments of different 
 data type and hence it will generate Compiler Error in last cout statement as call to max is ambiguous.*/
+```
 
 -----------********************-----------------------
+
+```
 #include <iostream>
 using namespace std;
 
@@ -85,9 +91,11 @@ int main()
 /*There are two classes created by the template: Test and Test. 
 Since count is a static member, every class has its own copy of it. 
 Also, count gets incremented in constructor*/
+```
 
 -----------********************-----------------------
 
+```
 #include <iostream>
 using namespace std;
 
@@ -120,7 +128,7 @@ specifying max or min values or any other constant value for a particular instan
 template. The important thing to note about non-type parameters is, they must be const. 
 Compiler must know the value of non-type parameters at compile time. Because compiler 
 needs to create functions/classes for a specified non-type value at compile time. 
-Following is another example of non-type parameters.
+Following is another example of non-type parameters.*/
 
 #include <iostream>
 using namespace std;
@@ -141,11 +149,12 @@ int main ()
 {
     int arr[] = {12, 3, 14};
     cout << fun  (arr, 3);
-}*/
-
+}
+```
 
 -----------********************-----------------------
 
+```
 #include <iostream>
 using namespace std;
 
@@ -163,8 +172,11 @@ int main()
 }
 
 /*Compiler error in line "i = 20;" Non-type parameters must be const, so they cannot be modified.*/
+```
 
 -----------********************-----------------------
+
+```
 #include <iostream>
 using namespace std;
 
@@ -190,9 +202,11 @@ int main ()
 /*Above program is an example of template specialization. Sometime we want a different behaviour 
 of a function/class template for a particular data type. For this, we can create a specialized 
 version for that particular data type.*/
+```
 
 -----------********************-----------------------
 
+```
 #include <iostream>
 using namespace std;
  
@@ -213,6 +227,7 @@ int main()
 }
 
 /*This is an example of template metaprogramming. The program mainly calculates 2^10.*/
+```
 
 -----------********************-----------------------
 
