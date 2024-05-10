@@ -2,7 +2,8 @@
 
 2. We can have pointers and references of abstract class type.
 
-```#include <iostream>
+```
+#include <iostream>
 using namespace std;
  
 class Base {
@@ -38,9 +39,11 @@ int main(void)
 
 5. An abstract class in C++ can also be defined using struct keyword.
 
-/*struct shapeClass
+```
+struct shapeClass
 {
     virtual void Draw()=0;
-}*/
+}
+```
 
 Ref: https://www.geeksforgeeks.org/pure-virtual-functions-and-abstract-classes/
