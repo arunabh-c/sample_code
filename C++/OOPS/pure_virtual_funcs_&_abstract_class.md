@@ -2,7 +2,7 @@
 
 2. We can have pointers and references of abstract class type.
 
-/*#include <iostream>
+```#include <iostream>
 using namespace std;
  
 class Base {
@@ -29,7 +29,8 @@ int main(void)
     bp->show();
  
     return 0;
-}*/
+}
+```
 
 3. If we do not override the pure virtual function in the derived class, then the derived class also becomes an abstract class.
 
