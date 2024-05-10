@@ -41,6 +41,6 @@ int main ()
     Derived d;
     Base1* b1 = &d;//new Derived();
     b1->func1();//goes for derived func1 as base is a virtual func
-    b1->func2();//goes for base1 func2 as its not virtual void
+    b1->func2();//goes for base1 func2 as its not virtual
     b1->Base1::func1();//syntax to force the exact function
 }
