@@ -28,8 +28,8 @@ int main()
 {
     ClassD obj;
  
-    obj.a = 10;                  // Statement 1, Error
-    obj.a = 100;                 // Statement 2, Error
+    obj.a = 10;                  // Statement 1, Error if virtual not used for class B & C
+    obj.a = 100;                 // Statement 2, Error if virtual not used for class B & C
  
     //obj.ClassB::a = 10; // Statement 3 // if not virtual used for class B & C, then this is the way out 
     //obj.ClassC::a = 100; // Statement 4 //  // if not virtual used for class B & C, then this is the way out
