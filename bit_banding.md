@@ -47,4 +47,6 @@ Advantages of Bit-Banding:
 3. Faster Execution: Bit-banding can lead to faster execution because it eliminates the need for masking and shifting operations, which can be relatively slow on some microcontrollers. This is especially crucial in real-time systems with strict timing requirements.
 4. Improved Code Efficiency: Code that uses bit-banding is often more efficient in terms of both code size and execution speed compared to equivalent code that relies on traditional bit manipulation techniques.
 5. Simplified Debugging: Debugging can be more straightforward because you can inspect and modify individual bits in memory using standard memory access tools, such as debuggers or memory viewers.
-It's important to note that bit-banding is a feature specific to ARM Cortex-M microcontrollers, and its availability may vary between different Cortex-M processor models. When working with these microcontrollers, understanding and utilizing bit-banding can greatly simplify your code and improve its performa
+It's important to note that bit-banding is a feature specific to ARM Cortex-M microcontrollers, and its availability may vary between different Cortex-M processor models. When working with these microcontrollers, understanding and utilizing bit-banding can greatly simplify your code and improve its performance, especially in scenarios where precise bit manipulation is required.
+
+Reference: https://www.linkedin.com/pulse/bit-banding-arm-cortex-m-microcontrollers-uttam-basu/
