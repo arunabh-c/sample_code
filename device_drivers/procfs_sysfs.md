@@ -41,4 +41,8 @@ Sysfs is the commonly used method to export system information from the kernel s
 The heart of the sysfs model is the kernel object. Kobject is the glue that binds the sysfs and the kernel, which is represented by struct kobject and defined in <linux/kobject.h>. 
 A struct kobject represents a kernel object, maybe a device or so, such as the things that show up as a directory in the sysfs filesystem.
 
+```
+ls -l /sys/kernel
+```
+
 Reference: https://embetronicx.com/tutorials/linux/device-drivers/sysfs-in-linux-kernel/
