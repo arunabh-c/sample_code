@@ -116,5 +116,8 @@ https://www.modernescpp.com/index.php/concurrency-patterns/
 https://web.stanford.edu/class/archive/cs/cs106l/cs106l.1204/lectures/raii/raii.pdf
 
 20. what are initializer lists and functions of const that dont actualyl return const inputs: https://www.geeksforgeeks.org/const-member-functions-c/#
+21. Practise debugging with https://www.codechef.com/learn/course/cpp/DEBUGCPPPRA/problems/DEBUGCPPP1
+https://codingpractise.com/beginning-with-c-plus-plus-debugging-exercises/
+https://wimyedema.medium.com/debugging-a-c-challenge-2c11bf39b045
 
-21. Finish implementing multi-threaded test bounded enqueue dequeue, map of string vs function pointer, implement basic calculator.
+22. Finish implementing multi-threaded test bounded enqueue dequeue, map of string vs function pointer, implement basic calculator.
